@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cb94a3e-caa6-42a1-99b9-ea23dc31e73f" name="Default Changelist" comment="" />
+    <list default="true" id="0cb94a3e-caa6-42a1-99b9-ea23dc31e73f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/FoxHoundIOBasicTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/FoxHoundUIBasicTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/FoxHoundUtilsBasicTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/FoxHoundUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/FoxHoundUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/FoxHoundUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/FoxHoundUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FoxHoundUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FoxHoundUtils.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,14 +34,22 @@
   <component name="FavoritesManager">
     <favorites_list name="THE BIG PROJECT" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1XDoj7MuK2cfRCzEcp0Ftuniicm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -30,14 +57,34 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Application.FoxHoundGame">
+  <component name="RunManager" selected="Gradle.FoxHoundUIBasicTest.testDisplayBoard">
     <configuration name="FoxHoundGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FoxHoundGame" />
       <module name="THE_BIG_PROJECT.main" />
-      <option name="PROGRAM_PARAMETERS" value="10" />
+      <option name="PROGRAM_PARAMETERS" value="-5" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="FoxHoundUIBasicTest.testDisplayBoard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;FoxHoundUIBasicTest.testDisplayBoard&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="FoxHoundUtilsBasicTest.testInitialisePositionsDefaultDim" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -104,11 +151,13 @@
       <item itemvalue="Gradle.FoxHoundUtilsBasicTest.testInitialisePositionsDefaultDim" />
       <item itemvalue="Gradle.FoxHoundUtilsBasicTest.testIsFoxWinPositive" />
       <item itemvalue="Gradle.FoxHoundUtilsBasicTest.testInitialisePositionsNegativeDim" />
+      <item itemvalue="Gradle.FoxHoundUIBasicTest.testDisplayBoard" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.FoxHoundUtilsBasicTest.testInitialisePositionsDefaultDim" />
+        <item itemvalue="Gradle.FoxHoundUIBasicTest.testDisplayBoard" />
         <item itemvalue="Gradle.FoxHoundUtilsBasicTest.testInitialisePositionsNegativeDim" />
+        <item itemvalue="Gradle.FoxHoundUtilsBasicTest.testInitialisePositionsDefaultDim" />
         <item itemvalue="Gradle.FoxHoundUtilsBasicTest.testIsFoxWinPositive" />
         <item itemvalue="Application.FoxHoundGame" />
       </list>
@@ -141,85 +190,132 @@
       <workItem from="1580747696722" duration="19000" />
       <workItem from="1580750293691" duration="6569000" />
       <workItem from="1580767010526" duration="11939000" />
+      <workItem from="1580781747971" duration="1190000" />
+      <workItem from="1580784526896" duration="1288000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="1" />
+        <option value="2" />
+        <option value="3" />
+        <option value="4" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="2153" y="0" key="#Project_Structure" timestamp="1580591078073">
-      <screen x="1920" y="0" width="1280" height="680" />
+    <state x="280" y="0" key="#Project_Structure" timestamp="1580784769750">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="280" y="0" key="#Project_Structure/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784769750" />
     <state x="2153" y="0" key="#Project_Structure/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580591078073" />
-    <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580778824220">
+    <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580784543710">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580778824220" />
+    <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784543710" />
     <state x="2016" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580646398952" />
     <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654371019" />
     <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1580772476238" />
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1580785780252">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580785780252" />
     <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1580692794817">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1580692794817" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1580781932068">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580781932068" />
     <state x="2341" y="97" key="FileChooserDialogImpl" timestamp="1580644652396">
       <screen x="1920" y="0" width="1280" height="680" />
     </state>
     <state x="2341" y="97" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580644652396" />
-    <state width="1493" height="201" key="GridCell.Tab.0.bottom" timestamp="1580780608198">
+    <state width="1493" height="666" key="GridCell.Tab.0.bottom" timestamp="1580785816587">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580780608198" />
+    <state width="1493" height="666" key="GridCell.Tab.0.bottom/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580785816587" />
     <state width="1237" height="152" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
     <state width="1493" height="234" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580772688572" />
-    <state width="1493" height="201" key="GridCell.Tab.0.center" timestamp="1580780608198">
+    <state width="1493" height="666" key="GridCell.Tab.0.center" timestamp="1580785816587">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580780608198" />
+    <state width="1493" height="666" key="GridCell.Tab.0.center/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580785816587" />
     <state width="1237" height="152" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
     <state width="1493" height="234" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580772688571" />
-    <state width="1493" height="201" key="GridCell.Tab.0.left" timestamp="1580780608198">
+    <state width="1493" height="666" key="GridCell.Tab.0.left" timestamp="1580785816587">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580780608198" />
+    <state width="1493" height="666" key="GridCell.Tab.0.left/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580785816587" />
     <state width="1237" height="152" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
     <state width="1493" height="234" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580772688571" />
-    <state width="1493" height="201" key="GridCell.Tab.0.right" timestamp="1580780608198">
+    <state width="1493" height="666" key="GridCell.Tab.0.right" timestamp="1580785816587">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580780608198" />
+    <state width="1493" height="666" key="GridCell.Tab.0.right/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580785816587" />
     <state width="1237" height="152" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734494" />
     <state width="1493" height="234" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580772688572" />
-    <state width="831" height="165" key="GridCell.Tab.1.bottom" timestamp="1580776840958">
+    <state width="1493" height="201" key="GridCell.Tab.1.bottom" timestamp="1580784939716">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="831" height="165" key="GridCell.Tab.1.bottom/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580776840958" />
+    <state width="1493" height="201" key="GridCell.Tab.1.bottom/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784939716" />
     <state width="1237" height="152" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
     <state width="1493" height="234" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580772688572" />
-    <state width="831" height="165" key="GridCell.Tab.1.center" timestamp="1580776840958">
+    <state width="1493" height="201" key="GridCell.Tab.1.center" timestamp="1580784939716">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="831" height="165" key="GridCell.Tab.1.center/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580776840958" />
+    <state width="1493" height="201" key="GridCell.Tab.1.center/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784939716" />
     <state width="1237" height="152" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
     <state width="1493" height="234" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1580772688572" />
-    <state width="831" height="165" key="GridCell.Tab.1.left" timestamp="1580776840958">
+    <state width="1493" height="201" key="GridCell.Tab.1.left" timestamp="1580784939716">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="831" height="165" key="GridCell.Tab.1.left/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580776840958" />
+    <state width="1493" height="201" key="GridCell.Tab.1.left/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784939716" />
     <state width="1237" height="152" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
     <state width="1493" height="234" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1580772688572" />
-    <state width="831" height="165" key="GridCell.Tab.1.right" timestamp="1580776840958">
+    <state width="1493" height="201" key="GridCell.Tab.1.right" timestamp="1580784939716">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="831" height="165" key="GridCell.Tab.1.right/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580776840958" />
+    <state width="1493" height="201" key="GridCell.Tab.1.right/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784939716" />
     <state width="1237" height="152" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
     <state width="1493" height="234" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1580772688572" />
@@ -227,9 +323,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="490" y="154" width="540" height="524" key="StructurePopup/0.0.1536.824@0.0.1536.824" timestamp="1580765000382" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1580767011165">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1580784535332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784535332" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580767011165" />
     <state x="330" y="149" width="876" height="601" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1580665297419">
       <screen x="0" y="0" width="1536" height="824" />
@@ -259,6 +356,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/THE_BIG_PROJECT$FoxHoundUtilsBasicTest_testInitialisePositionsDefaultDim.ic" NAME="FoxHoundUtilsBasicTest.testInitialisePositionsDefaultDim Coverage Results" MODIFIED="1580784948537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/THE_BIG_PROJECT$FoxHoundUtilsBasicTest_testIsFoxWinPositive.ic" NAME="FoxHoundUtilsBasicTest.testIsFoxWinPositive Coverage Results" MODIFIED="1580601003865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

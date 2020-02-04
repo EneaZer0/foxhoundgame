@@ -27,14 +27,14 @@ public class FoxHoundUtils {
     public static final char DOT_FIELD = '.';
 
     /** Margins for NUMBERS */
-    public  static final String NUMBERS_MARGIN = "  ";
+    public  static final String NUMBERS_MARGIN = " ";
     /** Set of the MARGIN OF ALPHABET*/
 
     public static String alphabet_margin (int dimension){
         String alphabet_margin = "";
 
         if (dimension < 10) {
-            alphabet_margin = "   ";
+            alphabet_margin = "  ";
         } else {
             alphabet_margin = "    ";
         }
