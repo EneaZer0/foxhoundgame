@@ -14,6 +14,7 @@ public class FoxHoundUtilsBasicTest {
 
     // ------------------------- initialisePositions --------------------
 
+    /** ######################### SOLVED #########################*/
     @Test
     public void testInitialisePositionsDefaultDim() {
         int dimension = FoxHoundUtils.DEFAULT_DIM;
@@ -25,7 +26,7 @@ public class FoxHoundUtilsBasicTest {
         
         assertArrayEquals("Returned positions not as expected.", expected, result);
     }
-
+    /** ######################### SOLVED #########################*/
     @Test(expected = IllegalArgumentException.class)
     public void testInitialisePositionsNegativeDim() {
         int dimension = -5;

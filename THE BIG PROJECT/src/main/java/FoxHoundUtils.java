@@ -59,8 +59,11 @@ public class FoxHoundUtils {
         /** First, check if the dimension we get is valid
          * if it is smaller than the MIN_DIM or bigger than the
          * MAX_DIM, it must be changed to de DEFAULT_DIM        */
-        if ((dimension < MIN_DIM) || (dimension > MAX_DIM)) {
+        if (((dimension < MIN_DIM) || (dimension > MAX_DIM)) && (dimension > 0)) {
             dimension = DEFAULT_DIM;
+        } else {
+            String error = "Dimensions must be positive!";
+            throw new IllegalArgumentException(error);
         }
 
         return dimension;
@@ -187,6 +190,11 @@ public class FoxHoundUtils {
 
         /** Number of pieces on the board, giving the option of possible
          * change of the number of Foxes playing */
+
+        if (dimension <= 0) {
+            throw new IllegalArgumentException("ERROR: DIMENSIONS MUST BE POSITIVE");
+        }
+
         int number_Hound = (dimension / 2);
         int number_Fox = 1;
 

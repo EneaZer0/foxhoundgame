@@ -113,6 +113,7 @@ public class FoxHoundUIBasicTest {
 
     // ------------------------- displayBoard --------------------
 
+    /** ************************* ERROR ************************** */
     @Test
     public void testDisplayBoard() {
         int dim = FoxHoundUtils.DEFAULT_DIM;
