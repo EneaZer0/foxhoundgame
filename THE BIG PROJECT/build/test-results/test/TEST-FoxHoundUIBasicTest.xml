@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="FoxHoundUIBasicTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-02-05T02:25:16" hostname="MSI" time="552.714">
-  <properties/>
-  <testcase name="testDisplayBoard" classname="FoxHoundUIBasicTest" time="552.714">
-    <skipped/>
-  </testcase>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

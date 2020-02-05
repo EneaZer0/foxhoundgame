@@ -301,7 +301,7 @@ public class FoxHoundUtils {
     public static void board (int[][] grid, String alphabet, String[] numbers, int dimension) {
 
         String letters = alphabet_margin(dimension) + alphabet;
-        System.out.println("\n"+ letters + "\n");
+        System.out.println("\n"+ letters + "  \n");
         String one_line = "";
 
 
