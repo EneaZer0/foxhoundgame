@@ -59,11 +59,8 @@ public class FoxHoundUtils {
         /** First, check if the dimension we get is valid
          * if it is smaller than the MIN_DIM or bigger than the
          * MAX_DIM, it must be changed to de DEFAULT_DIM        */
-        if (((dimension < MIN_DIM) || (dimension > MAX_DIM)) && (dimension > 0)) {
+        if ((dimension < MIN_DIM) || (dimension > MAX_DIM)) {
             dimension = DEFAULT_DIM;
-        } else {
-            String error = "Dimensions must be positive!";
-            throw new IllegalArgumentException(error);
         }
 
         return dimension;

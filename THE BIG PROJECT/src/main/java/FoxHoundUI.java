@@ -25,11 +25,20 @@ public class FoxHoundUI {
     public static void displayBoard(String[] players, int dimension) {
         // TODO implement me
 
-        /** Defining the arrays that will display the NUMBERS and the LETTERS on the chart*/
-        String[] numbers_array = new String[dimension];
-        String letters_array   = "";
-        String only_dots_array = "    ";
+        /** ___________________ PRINTING THE BOARD ____________________ */
 
+        /** PRINTING ONE FULL BOARD IN MATH VALUES */
+        //FoxHoundUtils.griding(FoxHoundUtils.letter_recognition(players), FoxHoundUtils.number_recognition(players), dimension, 0);
+        /** THIS FUNCTION PRINTS THE BOARD - IT TAKES GRIDING (IS A ARRAY[][]), LETTERS_ARRAY, NUMBERS_ARRAY & DIMENSION */
+        FoxHoundUtils.board(
+                FoxHoundUtils.griding(FoxHoundUtils.letter_recognition(players),FoxHoundUtils.number_recognition(players), dimension, 0),
+                FoxHoundUI.letters_array(dimension), FoxHoundUI.numbers_array(dimension), dimension);
+
+        //System.out.println(FoxHoundUtils.line_diagram(FoxHoundUtils.letter_recognition(players), FoxHoundUtils.number_recognition(players), dimension, 1));
+    }
+    /** FUNCTION THAT CREATES THE NUMBERS WHICH APPEAR IN EACH ROW */
+    public static String[] numbers_array (int dimension) {
+        String[] numbers_array = new String[dimension];
         /** ________________ NUMBERS ARRAY ___________________________
          *
          * If the dimension is under 2 digits, then is a simple count up
@@ -52,32 +61,20 @@ public class FoxHoundUI {
             }
         }
         // System.out.println(Arrays.toString(numbers_array));
+        return  numbers_array;
+    }
+    /** FUNCTION THAT CREATES THE STRING OF LETTERS USED IN GENERAL & APPEAR IN EACH COLUMN*/
+    public static String letters_array (int dimension) {
+        String letters_array   = "";
 
-        /** ________________ LETTERS ARRAY ___________________________
-         *  Use ASCII to calculate an array of letters in capital */
         for(int i = 0; i < dimension; i++) {
             String letter = String.valueOf((char) (65 + i));
             letters_array = letters_array + letter;
         }
         // System.out.println(letters_array);
 
-        /** ____________ RECOGNISE POSITION OF PIECES ________________*/
-        //System.out.println(Arrays.toString(FoxHoundUtils.letter_recognition(players)));
-        //System.out.println(Arrays.toString(FoxHoundUtils.number_recognition(players)));
-
-        /** ___________________ PRINTING THE BOARD ____________________ */
-        /** PRINTING ONE FULL BOARD IN MATH VALUES */
-        //FoxHoundUtils.griding(FoxHoundUtils.letter_recognition(players), FoxHoundUtils.number_recognition(players), dimension, 0);
-        /** THIS FUNCTION PRINTS THE BOARD - IT TAKES GRIDING (IS A ARRAY[][]), LETTERS_ARRAY, NUMBERS_ARRAY & DIMENSION */
-        FoxHoundUtils.board(
-                FoxHoundUtils.griding(FoxHoundUtils.letter_recognition(players),FoxHoundUtils.number_recognition(players), dimension, 0),
-                letters_array, numbers_array, dimension);
-
-        //System.out.println(FoxHoundUtils.line_diagram(FoxHoundUtils.letter_recognition(players), FoxHoundUtils.number_recognition(players), dimension, 1));
+        return letters_array;
     }
-
-
-
 
     /**
      * Print the main menu and query the user for an entry selection.
