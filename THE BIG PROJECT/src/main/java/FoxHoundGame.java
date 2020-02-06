@@ -107,7 +107,20 @@ public class FoxHoundGame {
         String initial_game_pos = Arrays.toString(players);
         System.out.println(initial_game_pos);
 
+        System.out.println(FoxHoundUtils.letter_coordinate("BE!1"));
+
+        try {
+            System.out.println(FoxHoundUtils.number_coordinate("B1EE"));
+        } catch (IllegalArgumentException error) {
+            System.err.println(error.getMessage());
+        }
+
         gameLoop(dimension, players);
+
+        boolean incorrect = true;
+
+
+
 
         // Close the scanner reading the standard input stream       
         STDIN_SCAN.close();

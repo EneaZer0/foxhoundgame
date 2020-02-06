@@ -23,10 +23,7 @@ public class FoxHoundUI {
 
     /** #__________________ DISPLAY THE BOARD __________________# */
     public static void displayBoard(String[] players, int dimension) {
-        // TODO implement me
-
         /** ___________________ PRINTING THE BOARD ____________________ */
-
         /** PRINTING ONE FULL BOARD IN MATH VALUES */
         //FoxHoundUtils.griding(FoxHoundUtils.letter_recognition(players), FoxHoundUtils.number_recognition(players), dimension, 0);
         /** THIS FUNCTION PRINTS THE BOARD - IT TAKES GRIDING (IS A ARRAY[][]), LETTERS_ARRAY, NUMBERS_ARRAY & DIMENSION */

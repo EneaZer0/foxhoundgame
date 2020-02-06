@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * A utility class for the fox hound program.
@@ -65,7 +66,6 @@ public class FoxHoundUtils {
 
         return dimension;
     }
-
     /** FUNCTION TO RECOGNISE THE LETTERS IN PLAYER */
     public static String[] letter_recognition (String[] players) {
 
@@ -236,11 +236,6 @@ public class FoxHoundUtils {
         return  position_array;
     }
 
-    // Create a function to recognise the elements in the players array
-    //public static String[][] recognise_position(int dimension, String[] players) {
-
-    //The best option is to separate letters from numbers -> create 2 arrays and then work with rows and columns
-
 
 
 
@@ -344,4 +339,75 @@ public class FoxHoundUtils {
 
     }
 
+
+    /** ____________________ TASK 4 - ISVALIDMOVE ______________________*/
+    // isValidMove gets dim (int of dimension), players array, figure (char of figure to be moved), String origin, String destination
+    public static boolean isValidMove (int dimension, String[] players, char figure, String origin, String destination) {
+        boolean isValid = false;
+
+        /** First check if the origin is inside players */
+        isValid = (isValid || origin_in_players(origin,players));
+
+
+
+
+        return isValid;
+    }
+
+    /** FUNCTION WHICH CHECKS IF ORIGIN IS IN PLAYERS */
+    public static boolean origin_in_players (String origin, String[] players) {
+        boolean origin_in_players = false;
+        for (int i = 0; i < players.length; i++) {
+            origin_in_players = origin_in_players || (origin.equals(players[i]));
+        }
+
+        return origin_in_players;
+    }
+    /** FUNCTION TO GET THE LETTERS OF COORDINATES - CAN EXTRACT LETTER FROM ORIGIN AND FROM PLAYERS */
+    public static char letter_coordinate (String coordinate) {
+        char letter;
+            letter = coordinate.charAt(0);
+        return letter;
+    }
+    /** FUNCTION TO GET THE NUMBERS OF COORDINATES - CAN EXTRACT NUMBERS FROM ORIGIN AND FROM PLAYERS*/
+    public static int number_coordinate (String coordinate) {
+        char number1;
+        char number2; //in case of two digits use to store the second digit
+        String number = "";
+        int final_number = 0;
+
+        // GETTING NUMBER IN CASE DIMENSION IS ONE DIGIT DIMENSION
+        if (coordinate.length() == 2) {
+
+            number1 = coordinate.charAt(1);
+            // CHECK IF THE NUMBER RECEIVED IS REALLY A NUMBER
+            if (48 >= (int) number1 && (int) number1 <= 57) {
+                final_number = Integer.parseInt(String.valueOf(number1));
+            } else {
+                throw new IllegalArgumentException("ERROR " + number1 + " IS NOT A NUMBER ");
+            }
+
+        } else if (coordinate.length() == 3) { // GETTING NUMBERS IN CASE DIMENSION IS A TWO DIGIT DIMENSION
+            number1 = coordinate.charAt(1);
+            number2 = coordinate.charAt(2);
+
+            // CHECK IF THE NUMBERS RECEIVED ARE REALLY NUMBERS
+            if ((48 >= (int) number1 && (int) number1 <= 57) && (48 >= (int) number2 && (int) number2 <= 57)) {
+                number = number + number1 + number2;
+                final_number = Integer.parseInt(number);
+            } else {
+                throw new IllegalArgumentException("ERROR " + number1 + " OR " + number2 + " ARE NOT NUMBERS");
+            }
+
+        } else {
+
+            throw  new IllegalArgumentException("ERROR " + coordinate + " IS NOT A VALID COORDINATE");
+
+        }
+
+        return final_number;
+    }
+
+
+    // board(griding(letter_recognition(players),number_recognition(players), dimension, 0), FoxHoundUI.letters_array(dimension), FoxHoundUI.numbers_array(dimension), dimension);
 }
