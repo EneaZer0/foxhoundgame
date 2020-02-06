@@ -90,15 +90,11 @@ public class FoxHoundGame {
 
         int dimension = FoxHoundUtils.DEFAULT_DIM;
 
+        /** Check if the argument is empty or not and then check if the dimension is valid for all the cases */
         if (args.length != 0) {
-
             dimension = Integer.parseInt(args[0]);
-        } else {
-            dimension = FoxHoundUtils.dimension_check(dimension);
         }
-
-        /** This print is to check what happens if no args is entered*/
-        //System.out.println(dimension);
+        dimension = FoxHoundUtils.dimension_check(dimension);
 
         String[] players = FoxHoundUtils.initialisePositions(dimension);
 
@@ -107,17 +103,12 @@ public class FoxHoundGame {
         String initial_game_pos = Arrays.toString(players);
         System.out.println(initial_game_pos);
 
+        /** This is to check if the letter_coordinate reader works */
         System.out.println(FoxHoundUtils.letter_coordinate("BE!1"));
 
-        try {
-            System.out.println(FoxHoundUtils.number_coordinate("B1EE"));
-        } catch (IllegalArgumentException error) {
-            System.err.println(error.getMessage());
-        }
+
 
         gameLoop(dimension, players);
-
-        boolean incorrect = true;
 
 
 
