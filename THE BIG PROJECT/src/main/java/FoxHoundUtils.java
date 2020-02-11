@@ -27,10 +27,16 @@ public class FoxHoundUtils {
     /** Symbol to represent an empty space. */
     public static final char DOT_FIELD = '.';
 
-    /** Margins for NUMBERS */
+    /** Margins for NUMBERS
+     * Sets a the default margin that the numbers will have when the board is displayed
+     */
     public  static final String NUMBERS_MARGIN = " ";
     /** Set of the MARGIN OF ALPHABET*/
-
+    /**
+     *
+     * @param dimension = gets the dimensions of the board
+     * @return  = creates an array of letters that will be used in the top and bottom of the board
+     */
     public static String alphabet_margin (int dimension){
         String alphabet_margin = "";
 
@@ -55,6 +61,11 @@ public class FoxHoundUtils {
     // Next_position must be implemented in the future
 
     /** FUNCTION TO SET THE DIMENSION OF ALL THE GAME*/
+    /**
+     *
+     * @param dimension = takes the initial dimension at the beginning of the game and checks if it is valid
+     * @return = a final dimension that can be used in the rest of the game
+     */
     public static int dimension_check (int dimension) {
 
         /** First, check if the dimension we get is valid
@@ -67,6 +78,11 @@ public class FoxHoundUtils {
         return dimension;
     }
     /** FUNCTION TO RECOGNISE THE LETTERS IN PLAYER */
+    /**
+     *
+     * @param players = takes the players array and recognise the letters that appear inside
+     * @return = an array of letters which are contained in the players array
+     */
     public static String[] letter_recognition (String[] players) {
 
         String[] letters_recognised = new String[players.length];
@@ -107,6 +123,11 @@ public class FoxHoundUtils {
         return letters_recognised;
     }
     /** FUNCTION TO RECOGNISE THE NUMBERS IN PLAYER */
+    /**
+     *
+     * @param players = takes the players array and recognise the numbers that appear inside
+     * @return = an array of numbers which are contained in the players array
+     */
     public static String[] number_recognition (String[] players) {
 
         /**
@@ -182,7 +203,12 @@ public class FoxHoundUtils {
         return numbers_recognised;
     }
 
-
+    /** FUNCTION TO SET THE PLAYERS ARRAY INITIAL VALUES */
+    /**
+     *
+     * @param dimension = Takes the dimension value to create the board
+     * @return = position_array, which is the players[] array
+     */
     public static String[] initialisePositions(int dimension) {
 
         /** Number of pieces on the board, giving the option of possible
@@ -248,7 +274,15 @@ public class FoxHoundUtils {
 
     /** ____________________ BUILD AND DISPLAY OF GRID ______________________ */
 
-    /** FUNCTION THAT BUILDS A LINE AS A DIAGRAM IN NUMBERS*/
+    /** FUNCTION WHICH BUILDS A LINE AS A DIAGRAM IN NUMBERS*/
+    /**
+     *
+     * @param letter_recognition = array with the letters after being recognised by letter_recognition() function
+     * @param number_recognition = array with the numbers after being recognised by number_recognition() function
+     * @param dimension = takes the dimension after being checked
+     * @param row = takes the value of the row that it is being created
+     * @return = returns a line as a math diagram of 0s 1s and 2s, (0 = dots, 1 = Hounds, 2 = Fox)
+     */
     public static int[] line_diagram (String[] letter_recognition, String[] number_recognition, int dimension, int row) {
 
         /** First create the full array */
@@ -284,7 +318,15 @@ public class FoxHoundUtils {
 
         return the_line;
     }
-    /** FUNCTION TO BUILT THE GRID OF LINES - IN MATH VALUES USING LINE_DIAGRAM*/
+    /** FUNCTION WHICH BUILTS THE GRID OF LINES - IN MATH VALUES USING LINE_DIAGRAM*/
+    /**
+     *
+     * @param letter_recognition = takes the letters that are inside players array
+     * @param number_recognition = takes the numbers that are inside players array
+     * @param dimension = takes the dimension of the board
+     * @param row = takes an initial value of the row
+     * @return = a grid of lines in math values using 0s, 1s and 2s
+     */
     public static int[][] griding (String[] letter_recognition, String[] number_recognition, int dimension, int row) {
 
         /** Creates a 2 dimension array to store all the values of the grid*/
@@ -300,6 +342,13 @@ public class FoxHoundUtils {
         return grid;
     }
     /** DISPLAY GRID - USES MATH VALUES OF GRID AND REPLACE THEM WITH THE FINAL GRID */
+    /**
+     *
+     * @param grid = takes the math version of the matrix grid
+     * @param alphabet = gets an array of letters that will be used in the top and bottom
+     * @param numbers = gets an array of numbers that will be used in the laterals
+     * @param dimension = takes the dimensions of the board
+     */
     public static void board (int[][] grid, String alphabet, String[] numbers, int dimension) {
 
         String letters = alphabet_margin(dimension) + alphabet;
@@ -348,7 +397,15 @@ public class FoxHoundUtils {
 
 
     /** ____________________ TASK 4 - ISVALIDMOVE ______________________*/
-    // isValidMove gets dim (int of dimension), players array, figure (char of figure to be moved), String origin, String destination
+    /**
+     *
+     * @param dimension = gets the dimension of the board
+     * @param players = get the array where the pieces are already
+     * @param figure = gets the character that represents the figure on the board
+     * @param origin = gets the original position on the board
+     * @param destination = gets the final position on the board
+     * @return = returns if the move entered is valid at that state of the game
+     */
     public static boolean isValidMove (int dimension, String[] players, char figure, String origin, String destination) {
         boolean isValid = false;
 
@@ -362,6 +419,12 @@ public class FoxHoundUtils {
     }
 
     /** FUNCTION WHICH CHECKS IF ORIGIN IS IN PLAYERS */
+    /**
+     *
+     * @param origin = takes the origin position of the piece we want to move
+     * @param players = take all the positions of the pieces in the actual board
+     * @return = compares if the origin input is valid (if it is contained in the players array)
+     */
     public static boolean origin_in_players (String origin, String[] players) {
         boolean origin_in_players = false;
         for (int i = 0; i < players.length; i++) {
@@ -370,13 +433,23 @@ public class FoxHoundUtils {
 
         return origin_in_players;
     }
-    /** FUNCTION TO GET THE LETTERS OF COORDINATES - CAN EXTRACT LETTER FROM ORIGIN AND FROM PLAYERS */
+    /** FUNCTION TO GET THE LETTERS OF COORDINATES - CAN EXTRACT LETTER FROM ORIGIN AND FROM PLAYERS (CHECK IF PLAYERS OF DESTINATION)*/
+    /**
+     *
+     * @param coordinate = gets the coordinate value (origin or destination) and gets the letter from that coordinate
+     * @return = the letter of the coordinate entered
+     */
     public static char letter_coordinate (String coordinate) {
         char letter;
             letter = coordinate.charAt(0);
         return letter;
     }
-    /** FUNCTION TO GET THE NUMBERS OF COORDINATES - CAN EXTRACT NUMBERS FROM ORIGIN AND FROM PLAYERS*/
+    /** FUNCTION TO GET THE NUMBERS OF COORDINATES - CAN EXTRACT NUMBERS FROM ORIGIN AND FROM PLAYERS (CHECK IF PLAYERS OF DESTINATION)*/
+    /**
+     *
+     * @param coordinate = gets the coordinate value (origin or destination) and gets the number from that coordinate
+     * @return = the number value of that coordinate
+     */
     public static int number_coordinate (String coordinate) {
         char number1;
         char number2; //in case of two digits use to store the second digit
@@ -394,7 +467,7 @@ public class FoxHoundUtils {
                 throw new IllegalArgumentException("ERROR " + number1 + " IS NOT A NUMBER ");
             }
 
-        } else if (coordinate.length() == 3) { // GETTING NUMBERS IN CASE DIMENSION IS A TWO DIGIT DIMENSION
+        } else if (coordinate.length() == 3) /* GETTING NUMBERS IN CASE DIMENSION IS A TWO DIGIT DIMENSION*/ {
             number1 = coordinate.charAt(1);
             number2 = coordinate.charAt(2);
 
