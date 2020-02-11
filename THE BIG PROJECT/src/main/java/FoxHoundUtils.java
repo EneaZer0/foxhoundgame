@@ -225,7 +225,14 @@ public class FoxHoundUtils {
         }
 
         /** Calculating the Fox's letter  */
-        int fox_letter = 65 + (dimension/2); //Set the initial letter value to 'A' in ASCII + the position of Fox
+
+        int fox_letter = 0;
+
+        if (dimension % 2 !=0) {
+            fox_letter = 65 + (dimension/2 ); //Set the initial letter value to 'A' in ASCII + the position of Fox
+        } else {
+            fox_letter = 65 + (dimension/2);
+        }
 
         // Creates the final string value of the Fox (including letter & number)
         String fox_value = String.valueOf((char)fox_letter) + fox_num_initial_position;
