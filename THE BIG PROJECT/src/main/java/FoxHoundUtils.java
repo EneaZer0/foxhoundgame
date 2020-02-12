@@ -1,3 +1,6 @@
+import org.graalvm.compiler.lir.StandardOp;
+
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -43,7 +46,7 @@ public class FoxHoundUtils {
         if (dimension < 10) {
             alphabet_margin = "  ";
         } else {
-            alphabet_margin = "    ";
+            alphabet_margin = "   ";
         }
 
         return alphabet_margin;
@@ -202,6 +205,31 @@ public class FoxHoundUtils {
 
         return numbers_recognised;
     }
+    /** FUNCTION TO RECOGNISE THE BLACK CASES IN THE LAST LINE */
+    public static int fox_position (int dimension) {
+        int[] blacks = new int[dimension/2];
+        if (dimension % 2 == 0) {
+            for (int i = 0; i < dimension/2; i++) {
+                if (i == 0) {
+                    blacks[i] = i;
+                } else {
+                    blacks[i] = 2*i;
+                }
+            }
+        } else {
+            for (int i = 0; i < dimension /2; i++) {
+                blacks[i] = 2*i + 1;
+            }
+        }
+
+        System.out.println(Arrays.toString(blacks));
+
+        int position = blacks[blacks.length/2];
+
+        System.out.println(position);
+
+        return position;
+    }
 
     /** FUNCTION TO SET THE PLAYERS ARRAY INITIAL VALUES */
     /**
@@ -251,14 +279,8 @@ public class FoxHoundUtils {
         }
 
         /** Calculating the Fox's letter  */
-
-        int fox_letter = 0;
-
-        if (dimension % 2 !=0) {
-            fox_letter = 65 + (dimension/2 ); //Set the initial letter value to 'A' in ASCII + the position of Fox
-        } else {
-            fox_letter = 65 + (dimension/2);
-        }
+        int fox_position = fox_position(dimension);
+        int fox_letter = 65 + fox_position;
 
         // Creates the final string value of the Fox (including letter & number)
         String fox_value = String.valueOf((char)fox_letter) + fox_num_initial_position;
