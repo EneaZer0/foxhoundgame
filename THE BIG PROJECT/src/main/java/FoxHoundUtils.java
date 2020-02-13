@@ -678,6 +678,26 @@ public class FoxHoundUtils {
 
         return valid;
     }
+    /** FUNCTION TO CHANGE THE PLAYERS ARRAY WITH THE NEW POSITION */
+    /**
+     *
+     * @param players = takes the initial position of the pieces
+     * @param positionQuery = takes the coordinates that the user decided for that move
+     * @return = a new players array with the new positions
+     */
+    public static String[] new_players_position (String[] players, String[] positionQuery) {
 
+        int k = 0;
+        for (int i = 0; i < players.length; i++) {
+            k = i;
+            if (positionQuery[0].equals(players[i])){
+                break;
+            }
+        }
+
+        players[k] = positionQuery[1];
+
+        return players;
+    }
 
 }

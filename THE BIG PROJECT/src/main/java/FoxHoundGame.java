@@ -114,12 +114,6 @@ public class FoxHoundGame {
         }
         */
 
-        String [] inputs = new String[2];
-        /*for (int i = 0; i < inputs.length; i++) {
-            inputs[i] = FoxHoundUI.positionQuery(dimension, STDIN_SCAN)[i];
-        }*/
-
-
 
         // FoxHoundUtils.isValidMove(dimension, players,'F',coordinates_array[0], coordinates_array[1]);
 
