@@ -1,3 +1,5 @@
+import com.sun.imageio.plugins.common.SingleTileRenderedImage;
+
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -60,6 +62,7 @@ public class FoxHoundGame {
             // handle menu choice
             switch(choice) {
                 case FoxHoundUI.MENU_MOVE:
+                    FoxHoundUI.positionQuery(dim, STDIN_SCAN);
                     turn = swapPlayers(turn);
                     break;
                 case FoxHoundUI.MENU_EXIT:
@@ -104,14 +107,21 @@ public class FoxHoundGame {
         System.out.println(initial_game_pos);
 
         /** This is to check if the letter_coordinate reader works */
-        try {
+        /*try {
             System.out.println("The movement is valid: " + FoxHoundUtils.isValidMove(8,players,'H',"E8","D7"));
         } catch (IllegalArgumentException error){
             System.err.println(error.getMessage());
         }
+        */
+
+        String [] inputs = new String[2];
+        /*for (int i = 0; i < inputs.length; i++) {
+            inputs[i] = FoxHoundUI.positionQuery(dimension, STDIN_SCAN)[i];
+        }*/
 
 
 
+        // FoxHoundUtils.isValidMove(dimension, players,'F',coordinates_array[0], coordinates_array[1]);
 
         gameLoop(dimension, players);
 

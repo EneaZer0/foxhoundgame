@@ -111,7 +111,7 @@ public class FoxHoundUIBasicTest_05_update {
         return tmpStdErr.toString();
     }
 
-    // ------------------------- displayBoard --------------------
+    // ------------------------- displayBoard DONE--------------------
 
     @Test
     public void testDisplayBoard() {
@@ -135,8 +135,8 @@ public class FoxHoundUIBasicTest_05_update {
         } 
     }
 
-    // ------------------------- positionQuery --------------------
-/*
+    // ------------------------- positionQuery DONE--------------------
+
     private void checkPosQueryOutput(int dim, String expectedStdOut, String expectedStdErr, String inputLine) {
         Scanner TEST_IN = new Scanner(new ByteArrayInputStream(inputLine.getBytes()));
 
@@ -195,7 +195,7 @@ public class FoxHoundUIBasicTest_05_update {
 
         assertArrayEquals("Query return coordinates not as expected.", expected, result);
     }
-
+/*
     // ------------------------- fileQuery --------------------
 
     private void checkFileQueryOutput(String expectedStdOut, String expectedStdErr, String inputLine) {

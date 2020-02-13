@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="FoxHoundUtilsBasicTest_05_update" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-02-13T16:14:20" hostname="MSI" time="0.002">
-  <properties/>
-  <testcase name="testInitialisePositionsDefaultDim" classname="FoxHoundUtilsBasicTest_05_update" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

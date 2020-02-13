@@ -637,5 +637,47 @@ public class FoxHoundUtils {
     }
 
 
-    // board(griding(letter_recognition(players),number_recognition(players), dimension, 0), FoxHoundUI.letters_array(dimension), FoxHoundUI.numbers_array(dimension), dimension);
+
+
+    /** ____________________ TASK 4 - POSITION QUERY ______________________*/
+    /** FUNCTION TO CHECK IF THE INPUT COORDINATES ARE IN THE RANGE OF THE DIMENSION*/
+    /**
+     *
+     * @param dimension = compare the values of the coordinates with the dimension
+     * @param coordinates = get the array of coordinates of the user
+     * @return = a boolean indicating if its necessary ask again for coordinates
+     */
+    public static boolean input_coordinates_valid (int dimension, String[] coordinates) {
+
+        boolean valid = true;
+        if (coordinates.length != 2) {
+            valid = false;
+        }
+
+        // CHECK LETTERS
+        for (int i = 0; i < coordinates.length; i++) {
+
+            if (!((int)coordinates[i].charAt(0) <= 90 -(26 - dimension) && (int)coordinates[i].charAt(0) >= 65 )) {
+                valid = false;
+                System.err.println("ERROR: Please enter valid coordinate pair separated by space.");
+                break;
+            } else {
+                valid = true;
+            }
+        // CHECK NUMBERS
+            if (number_coordinate(coordinates[i]) > dimension) {
+                valid = false;
+                System.err.println("ERROR: Please enter valid coordinate pair separated by space.");
+                break;
+            } else {
+                valid = true;
+            }
+
+
+        }
+
+        return valid;
+    }
+
+
 }
