@@ -21,12 +21,10 @@ public class FoxHoundUtils {
     public static final int MIN_DIM = 4;
     /** Maximum possible dimension of the game board. */
     public static final int MAX_DIM = 26;
-
     /** Symbol to represent a hound figure. */
     public static final char HOUND_FIELD = 'H';
     /** Symbol to represent the fox figure. */
     public static final char FOX_FIELD = 'F';
-
     /** Symbol to represent an empty space. */
     public static final char DOT_FIELD = '.';
 
@@ -52,16 +50,10 @@ public class FoxHoundUtils {
         return alphabet_margin;
     }
 
-
     private static String[] letter_recognition;
     private static String[] number_recognition;
     private static int dimension;
     private static int row;
-
-    // HINT Write your own constants here to improve code readability ...
-
-    //public static String positionCalculator(int dimension, String previous_position) {    }
-    // Next_position must be implemented in the future
 
     /** FUNCTION TO SET THE DIMENSION OF ALL THE GAME*/
     /**
@@ -206,7 +198,13 @@ public class FoxHoundUtils {
         return numbers_recognised;
     }
     /** FUNCTION TO RECOGNISE THE BLACK CASES IN THE LAST LINE */
+    /**
+     *
+     * @param dimension = takes the dimension to calculate the position where the Fox will be at the beginning
+     * @return
+     */
     public static int fox_position (int dimension) {
+        // Black = array with the positions of the black squares were the fox can be
         int[] blacks = new int[dimension/2];
         if (dimension % 2 == 0) {
             for (int i = 0; i < dimension/2; i++) {
@@ -221,16 +219,14 @@ public class FoxHoundUtils {
                 blacks[i] = 2*i + 1;
             }
         }
-
-        System.out.println(Arrays.toString(blacks));
-
+        // Check printing the black squares
+        //System.out.println(Arrays.toString(blacks));
         int position = blacks[blacks.length/2];
-
-        System.out.println(position);
+        // Check printing the final position of the Fox
+        //System.out.println(position);
 
         return position;
     }
-
     /** FUNCTION TO SET THE PLAYERS ARRAY INITIAL VALUES */
     /**
      *
@@ -340,7 +336,7 @@ public class FoxHoundUtils {
 
         return the_line;
     }
-    /** FUNCTION WHICH BUILTS THE GRID OF LINES - IN MATH VALUES USING LINE_DIAGRAM*/
+    /** FUNCTION WHICH BUILDS THE GRID OF LINES - IN MATH VALUES USING LINE_DIAGRAM*/
     /**
      *
      * @param letter_recognition = takes the letters that are inside players array
@@ -418,7 +414,9 @@ public class FoxHoundUtils {
     }
 
 
-    /** ____________________ TASK 4 - ISVALIDMOVE ______________________*/
+
+
+    /** ____________________ TASK 4 - IS VALID MOVE ______________________*/
     /**
      *
      * @param dimension = gets the dimension of the board
@@ -429,17 +427,81 @@ public class FoxHoundUtils {
      * @return = returns if the move entered is valid at that state of the game
      */
     public static boolean isValidMove (int dimension, String[] players, char figure, String origin, String destination) {
-        boolean isValid = false;
-
-        /** First check if the origin is inside players */
-        isValid = (isValid || origin_in_players(origin,players));
+        boolean isValid = true;
 
 
-
+        /** _________________ CHECKING ORIGIN ___________________ */
+        /** Check if the coordinates of the origin entered are valid */
+        isValid = coordinate_checker(dimension, origin) && isValid;
+        /** Check if the coordinates of the origin are inside the players array*/
+        isValid = in_players(origin,players) && isValid;
+        /** Check if the coordinates of the destination entered are valid */
+        isValid = coordinate_checker(dimension, destination) && isValid;
+        /** Check if the the destination is inside players array */
+        isValid = !(in_players(destination,players)) && isValid;
+        /** Check if the origin is not equal to the destination */
+        isValid = !(origin.equals(destination)) && isValid;
+        /** Check the char of the piece that it is moving */
+        isValid = char_checker(figure, origin, players) && isValid;
+        /** Check if the destination letter is in the diagonal of the origin*/
+        isValid = in_diagonal(origin, destination) && isValid;
 
         return isValid;
     }
+    /** FUNCTION WHICH CHECKS IF A COORDINATE IS VALID */
+    /**
+     *
+     * @param dimension = take the dimension to check if all the values are inside the board
+     * @param coordinate = takes the coordinate we want ot check (origin / destination)
+     * @return = boolean value saying if the coordinate is valid for that board
+     */
+    public static boolean coordinate_checker (int dimension, String coordinate) {
+        boolean validity = true;
+        char letter = ' ';
+        int number = 0;
 
+        /** Check if the letter of the coordinate is valid */
+        try {
+            letter = FoxHoundUtils.letter_coordinate(coordinate);
+            validity = validity && true;
+
+        } catch (IllegalArgumentException error){
+            validity = false;
+            System.err.println(error.getMessage());
+        }
+        /** Check that the letter is inside the possible dimensions */
+        if ( 65 <= (int)letter && (int)letter <= (90 - (26 - dimension)) ){
+            validity = validity && true;
+        } else {
+            validity = false;
+            System.err.println("ERROR, LETTER " + letter + " IS NOT IN THE RANGE OF THE DIMENSION");
+        }
+        /** Checking if the number of the coordinate is valid  */
+        try {
+            number = FoxHoundUtils.number_coordinate(coordinate);
+            validity = validity && true;
+
+        } catch (IllegalArgumentException error){
+            validity = false;
+            System.err.println(error.getMessage());
+        }
+        /** Check that the numbers of the coordinate are inside the possible dimensions */
+        if ( 1 <= number && number <= dimension) {
+            validity = validity && true;
+        } else {
+            validity = false;
+            if (number == 0) {
+                System.err.println("ERROR, NO NUMBER FOUND");
+            } else {
+                System.err.println("ERROR, NUMBER " + number + " IS NOT IN THE RANGE OF THE DIMENSION");
+            }
+        }
+
+        if (validity == false) {
+            System.err.println("ERROR, " + coordinate + " IS NOT A VALID COORDINATE");
+        }
+        return validity;
+    }
     /** FUNCTION WHICH CHECKS IF ORIGIN IS IN PLAYERS */
     /**
      *
@@ -447,13 +509,69 @@ public class FoxHoundUtils {
      * @param players = take all the positions of the pieces in the actual board
      * @return = compares if the origin input is valid (if it is contained in the players array)
      */
-    public static boolean origin_in_players (String origin, String[] players) {
-        boolean origin_in_players = false;
+    public static boolean in_players (String origin, String[] players) {
+        boolean origin_players = false;
         for (int i = 0; i < players.length; i++) {
-            origin_in_players = origin_in_players || (origin.equals(players[i]));
+            origin_players = origin_players || (origin.equals(players[i]));
+        }
+        return origin_players;
+    }
+    /** FUNCTION WHICH CHECKS IF THE FIGURE OF THE PIECE MOVING IS VALID */
+    public static boolean char_checker (char figure, String origin, String[] players) {
+        boolean valid = false;
+        int k = 0;
+
+        for (int i = 0; i < players.length; i++) {
+            k = i;
+            if (origin.equals(players[i])) {
+                break;
+            }
+        }
+        if (k < players.length - 1) {
+            if (figure == 'H') {
+                valid = true;
+            } else {
+                System.err.println("THE FIGURE " + figure + " IS NOT VALID");
+            }
+        } else {
+            if (figure == 'F') {
+                valid = true;
+            } else {
+                System.err.println("THE FIGURE " + figure + " IS NOT VALID");
+            }
         }
 
-        return origin_in_players;
+        return valid;
+    }
+    /** FUNCTION WHICH CHECKS IF THE LETTER FROM ORIGIN IS IN A RANGE OF +-1 AND THAT THE ROW IS ALSO CHANGED BY +-1*/
+    /**
+     *
+     * @param origin = takes the origin to get it's number and letter and compare it to the destination
+     * @param destination = takes the destination to get it's number and letter and compare them to the origin, must be +-1 values of the origin
+     * @return = if the destination is in a diagonal position
+     */
+    public static boolean in_diagonal (String origin, String destination) {
+        boolean valid = true;
+        char letter_origin = letter_coordinate(origin);
+        int number_origin = number_coordinate(origin);
+        char letter_destination = letter_coordinate(destination);
+        int number_destination = number_coordinate(destination);
+
+        if (((int)letter_destination == (int)letter_origin  + 1 ) || ( (int)letter_destination == (int)letter_origin  - 1 )) {
+            valid = valid && true;
+        } else {
+            valid = false;
+            System.err.println("ERROR, LETTERS ARE NOT IN DIAGONAL");
+        }
+
+        if ((number_destination == number_origin + 1) || (number_destination == number_origin - 1)) {
+            valid = valid && true;
+        } else {
+            valid = false;
+            System.err.println("ERROR, NUMBERS ARE NOT IN DIAGONAL");
+        }
+
+        return valid;
     }
     /** FUNCTION TO GET THE LETTERS OF COORDINATES - CAN EXTRACT LETTER FROM ORIGIN AND FROM PLAYERS (CHECK IF PLAYERS OF DESTINATION)*/
     /**
@@ -462,8 +580,16 @@ public class FoxHoundUtils {
      * @return = the letter of the coordinate entered
      */
     public static char letter_coordinate (String coordinate) {
-        char letter;
+        char letter = ' ';
+        if (coordinate.length() == 2 || coordinate.length() == 3) {
             letter = coordinate.charAt(0);
+            if ((int) letter > 90 || 65 > (int) letter) {
+                letter = coordinate.charAt(0);
+                System.err.println("ERROR " + letter + " IS NOT A VALID LETTER");
+            }
+        } else {
+            System.err.println("ERROR " + coordinate + " IS NOT A VALID COORDINATE");
+        }
         return letter;
     }
     /** FUNCTION TO GET THE NUMBERS OF COORDINATES - CAN EXTRACT NUMBERS FROM ORIGIN AND FROM PLAYERS (CHECK IF PLAYERS OF DESTINATION)*/
@@ -483,7 +609,7 @@ public class FoxHoundUtils {
 
             number1 = coordinate.charAt(1);
             // CHECK IF THE NUMBER RECEIVED IS REALLY A NUMBER
-            if (48 >= (int) number1 && (int) number1 <= 57) {
+            if (48 <= (int) number1 && (int) number1 <= 57) {
                 final_number = Integer.parseInt(String.valueOf(number1));
             } else {
                 throw new IllegalArgumentException("ERROR " + number1 + " IS NOT A NUMBER ");
@@ -494,7 +620,7 @@ public class FoxHoundUtils {
             number2 = coordinate.charAt(2);
 
             // CHECK IF THE NUMBERS RECEIVED ARE REALLY NUMBERS
-            if ((48 >= (int) number1 && (int) number1 <= 57) && (48 >= (int) number2 && (int) number2 <= 57)) {
+            if ((48 <= (int) number1 && (int) number1 <= 57) && (48 <= (int) number2 && (int) number2 <= 57)) {
                 number = number + number1 + number2;
                 final_number = Integer.parseInt(number);
             } else {

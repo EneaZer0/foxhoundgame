@@ -104,7 +104,12 @@ public class FoxHoundGame {
         System.out.println(initial_game_pos);
 
         /** This is to check if the letter_coordinate reader works */
-        System.out.println(FoxHoundUtils.letter_coordinate("BE!1"));
+        try {
+            System.out.println("The movement is valid: " + FoxHoundUtils.isValidMove(8,players,'H',"E8","D7"));
+        } catch (IllegalArgumentException error){
+            System.err.println(error.getMessage());
+        }
+
 
 
 

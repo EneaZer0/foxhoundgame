@@ -22,6 +22,11 @@ public class FoxHoundUI {
     public static final int MENU_EXIT = 2;
 
     /** #__________________ DISPLAY THE BOARD __________________# */
+    /**
+     *
+     * @param players = takes the array of the situation of the pieces in the board
+     * @param dimension = takes the dimension of the board
+     */
     public static void displayBoard(String[] players, int dimension) {
         /** ___________________ PRINTING THE BOARD ____________________ */
         /** PRINTING ONE FULL BOARD IN MATH VALUES */
@@ -34,6 +39,11 @@ public class FoxHoundUI {
         //System.out.println(FoxHoundUtils.line_diagram(FoxHoundUtils.letter_recognition(players), FoxHoundUtils.number_recognition(players), dimension, 1));
     }
     /** FUNCTION THAT CREATES THE NUMBERS WHICH APPEAR IN EACH ROW */
+    /**
+     *
+     * @param dimension = takes the dimension to create an array till that value
+     * @return = an array with all the numbers to be displayed
+     */
     public static String[] numbers_array (int dimension) {
         String[] numbers_array = new String[dimension];
         /** ________________ NUMBERS ARRAY ___________________________
@@ -61,6 +71,11 @@ public class FoxHoundUI {
         return  numbers_array;
     }
     /** FUNCTION THAT CREATES THE STRING OF LETTERS USED IN GENERAL & APPEAR IN EACH COLUMN*/
+    /**
+     *
+     * @param dimension = takes the dimension to calculate the letters used in the displayed board
+     * @return = the array with all the letters needed to print the board
+     */
     public static String letters_array (int dimension) {
         String letters_array   = "";
 

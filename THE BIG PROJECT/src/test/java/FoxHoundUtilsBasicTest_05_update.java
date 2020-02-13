@@ -95,7 +95,7 @@ import org.junit.Test;
     public void testIsHoundWinDInvalid() {
         FoxHoundUtils.isHoundWin(defaultPlayers, -5);
     }
-
+*/
     // ------------------------- isValidMove -------------------------------
 
     @Test
@@ -206,7 +206,6 @@ import org.junit.Test;
             "given destination is already occupied.", result);
     }
 
- */
 
  }
 
