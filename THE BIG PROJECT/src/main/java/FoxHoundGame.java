@@ -1,4 +1,4 @@
-import com.sun.imageio.plugins.common.SingleTileRenderedImage;
+//import com.sun.imageio.plugins.common.SingleTileRenderedImage;
 
 import java.util.Scanner;
 import java.util.Arrays;
@@ -63,7 +63,6 @@ public class FoxHoundGame {
             switch(choice) {
                 case FoxHoundUI.MENU_MOVE:
                     FoxHoundUtils.make_the_step(players,dim,STDIN_SCAN,turn);
-                    // FoxHoundUI.positionQuery(dim, STDIN_SCAN);
                     turn = swapPlayers(turn);
                     break;
                 case FoxHoundUI.MENU_EXIT:

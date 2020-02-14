@@ -1,5 +1,5 @@
-import com.sun.imageio.plugins.common.SingleTileRenderedImage;
-import org.graalvm.compiler.lir.StandardOp;
+//import com.sun.imageio.plugins.common.SingleTileRenderedImage;
+//import org.graalvm.compiler.lir.StandardOp;
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
@@ -726,7 +726,15 @@ public class FoxHoundUtils {
 
         return players;
     }
-    /** FUNCTION TO MAKE A FULL MOVEMENT (POSITION_QUERY - NEW_PLAYERS_POSITION - IS_VALID_MOVE) */
+    /** FUNCTION TO MAKE A FULL MOVEMENT (POSITION_QUERY - NEW_PLAYERS_POSITION - IS_VALID_MOVE - IS_FOX_WIN) */
+    /**
+     *
+     * @param players = takes the players to set the initial conditions of the move
+     * @param dimension = to do all the checking on the inside functions which require it
+     * @param input = the input of the user
+     * @param figure = the turn, sets who is moving the piece
+     * @return = a new players array with the new movement implemented
+     */
     public static String[] make_the_step (String[] players, int dimension, Scanner input, char figure) {
 
         String positionQuery_string = Arrays.toString(FoxHoundUI.positionQuery(dimension,input));
@@ -742,8 +750,84 @@ public class FoxHoundUtils {
         } else {
             make_the_step(players,dimension,input,figure);
         }
+        /** CHECK IF THE FOX WINS ON THIS MOVEMENT */
+        if (figure == 'F') {
+            isFoxWin(positionQuery_array[1]);
+        }
+        if (figure == 'H') {
+            isHoundWin(players, dimension);
+        }
+
 
         return players;
+    }
+
+
+
+
+    /** ____________________ TASK 5 - WINNING THE GAME ______________________*/
+    /** FUNCTION TO CHECK IF THE FOX WINS */
+    /**
+     *
+     * @param fox_position = gets the destination of the fox
+     * @return = if the fox wins or not in this movement
+     */
+    public static boolean isFoxWin (String fox_position) {
+        boolean fox_win = false;
+
+        if (number_coordinate(fox_position) == 1) {
+            fox_win =true;
+            System.out.println("The Fox wins!");
+
+        } else {
+            System.out.println("The Fox did not win yet");
+        }
+
+        return fox_win;
+    }
+    /** FUNCTION TO CHECK IF THE HOUNDS WINS */
+    /**
+     *
+     * @param players = takes all the positions of the pieces on the board to evaluate if the hounds win or not
+     * @param dimension = takes the dimensions of the board to set the limits
+     * @return
+     */
+    public static boolean isHoundWin(String[] players, int dimension) {
+
+        if (dimension < 4) {
+            throw new IllegalArgumentException("ERROR: THE DIMENSION IS NOT VALID");
+        }
+
+        if (players == null) {
+            throw new NullPointerException("ERROR: THE PLAYERS CAN NOT BE NULL");
+        }
+        boolean hounds_win = false;
+        boolean fox_win = false;
+        String fox_coordinates = players[players.length-1];
+        char fox_letter = letter_coordinate(fox_coordinates);
+        int fox_number = number_coordinate(fox_coordinates);
+
+        String[] destination = new String[4];
+
+        // two coordinates with letter  +1 and two coordinates with letter -1
+        // numbers two numbers +1 and two numbers -1
+        destination[0] = "" + (char)((int)fox_letter + 1) + (fox_number + 1); // right top corner
+        destination[1] = "" + (char)((int)fox_letter + 1) + (fox_number - 1); // right bottom corner
+        destination[2] = "" + (char)((int)fox_letter - 1) + (fox_number + 1); // left top corner
+        destination[3] = "" + (char)((int)fox_letter - 1) + (fox_number - 1); // left bottom corner
+
+        // Check if the fox can do a valid move in its position
+        for (int i = 0; i < destination.length; i++) {
+            fox_win = (isValidMove(dimension,players,'F',fox_coordinates,destination[i])) || fox_win;
+        }
+        if (!fox_win) {
+            System.out.println("The Hounds win!");
+        } else {
+            System.out.println("The Hounds do not win yet");
+        }
+
+
+        return !fox_win;
     }
 
 }
