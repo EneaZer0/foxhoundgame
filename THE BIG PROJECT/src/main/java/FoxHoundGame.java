@@ -118,7 +118,7 @@ public class FoxHoundGame {
         // FoxHoundUtils.isValidMove(dimension, players,'F',coordinates_array[0], coordinates_array[1]);
 
         //System.out.println(Arrays.toString(FoxHoundUtils.new_players_position(players, new String[]{"E8", "D7"})) );
-
+        FoxHoundIO.creator_file(players,'F');
 
         gameLoop(dimension, players);
 

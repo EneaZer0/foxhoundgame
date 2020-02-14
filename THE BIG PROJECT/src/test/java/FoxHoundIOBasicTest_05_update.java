@@ -110,9 +110,9 @@ public class FoxHoundIOBasicTest_05_update {
         String[] players = {"B1", "D1", "F1", "H1", "J1", "E10"}; 
         FoxHoundIO.loadGame(players, input);
     }
-
+*/
     // ------------------------- saveGame --------------------
-
+/*
     private Path getTmpPath() {
         try {
             File tmpFile = File.createTempFile("foxHoundGameSave", ".txt");
@@ -147,7 +147,7 @@ public class FoxHoundIOBasicTest_05_update {
         assertArrayEquals("Saved players array not as expected.", expected, players);
         assertEquals("Saved next move not as expected.", expectedMove, nextMove);
     }
-
+*/
     @Test
     public void testSaveGameInvalidPath() {
         String[] expected = defaultPlayers;
@@ -164,7 +164,7 @@ public class FoxHoundIOBasicTest_05_update {
     public void testSaveGamePathNull() {
         FoxHoundIO.saveGame(defaultPlayers, FoxHoundUtils.FOX_FIELD, null);
     }
-
+/*
     @Test(expected = IllegalArgumentException.class)
     public void testSaveGamePlayersNonDefaultDim() {
         String[] players = {"B1", "D1", "F1", "H1", "J1", "E10"}; 
@@ -172,5 +172,5 @@ public class FoxHoundIOBasicTest_05_update {
         Path saveFile = getTmpPath();
         FoxHoundIO.saveGame(players, nextMove, saveFile);
     }
-    */
+  */
 }
