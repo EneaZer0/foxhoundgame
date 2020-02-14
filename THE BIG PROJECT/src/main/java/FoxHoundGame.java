@@ -62,7 +62,8 @@ public class FoxHoundGame {
             // handle menu choice
             switch(choice) {
                 case FoxHoundUI.MENU_MOVE:
-                    FoxHoundUI.positionQuery(dim, STDIN_SCAN);
+                    FoxHoundUtils.make_the_step(players,dim,STDIN_SCAN,turn);
+                    // FoxHoundUI.positionQuery(dim, STDIN_SCAN);
                     turn = swapPlayers(turn);
                     break;
                 case FoxHoundUI.MENU_EXIT:
@@ -116,6 +117,9 @@ public class FoxHoundGame {
 
 
         // FoxHoundUtils.isValidMove(dimension, players,'F',coordinates_array[0], coordinates_array[1]);
+
+        //System.out.println(Arrays.toString(FoxHoundUtils.new_players_position(players, new String[]{"E8", "D7"})) );
+
 
         gameLoop(dimension, players);
 

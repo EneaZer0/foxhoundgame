@@ -1,3 +1,4 @@
+import com.sun.imageio.plugins.common.SingleTileRenderedImage;
 import org.graalvm.compiler.lir.StandardOp;
 
 import java.sql.SQLOutput;
@@ -696,6 +697,23 @@ public class FoxHoundUtils {
         }
 
         players[k] = positionQuery[1];
+
+        return players;
+    }
+    /** FUNCTION TO MAKE A FULL MOVEMENT (POSITION_QUERY - NEW_PLAYERS_POSITION - IS_VALID_MOVE) */
+    public static String[] make_the_step (String[] players, int dimension, Scanner input, char figure) {
+
+        String positionQuery_string = Arrays.toString(FoxHoundUI.positionQuery(dimension,input));
+        //System.out.println(positionQuery_string);
+        positionQuery_string = positionQuery_string.substring(1);
+        positionQuery_string = positionQuery_string.replaceAll("]", "").trim();
+        positionQuery_string = positionQuery_string.replaceAll(",", "").trim();
+        //System.out.println(positionQuery_string);
+        String[] positionQuery_array = positionQuery_string.split(" ");
+
+        if (isValidMove(dimension,players,figure,positionQuery_array[0],positionQuery_array[1]) == true) {
+            FoxHoundUtils.new_players_position(players,positionQuery_array);
+        }
 
         return players;
     }
