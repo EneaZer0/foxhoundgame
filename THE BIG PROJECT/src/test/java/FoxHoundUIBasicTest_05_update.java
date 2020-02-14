@@ -12,6 +12,7 @@ import org.junit.Test;
 
 public class FoxHoundUIBasicTest_05_update {
 
+
     private boolean stdCapStarted;
     private OutputStream tmpStdOut;
     private OutputStream tmpStdErr;

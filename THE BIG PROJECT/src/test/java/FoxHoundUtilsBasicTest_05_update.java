@@ -12,7 +12,7 @@ import org.junit.Test;
      defaultPlayers = new String[]{"B1", "D1", "F1", "H1", "E8"};
    }
 
-   // ------------------------- initialisePositions --------------------
+   // ------------------------- initialisePositions DONE --------------------
 
    @Test
    public void testInitialisePositionsDefaultDim() {
@@ -32,8 +32,8 @@ import org.junit.Test;
      FoxHoundUtils.initialisePositions(dimension);
    }
 
-   // ------------------------- isFoxWin -------------------------------
-/*
+   // ------------------------- isFoxWin DONE -------------------------------
+
     @Test
     public void testIsFoxWinPositive() {
         String foxPos = "B1";
@@ -60,7 +60,7 @@ import org.junit.Test;
         FoxHoundUtils.isFoxWin(null);
     }
 
-    // ------------------------- isHoundWin -------------------------------
+    // ------------------------- isHoundWin DONE -------------------------------
 
     @Test
     public void testIsHoundWinPositive() {
@@ -95,8 +95,8 @@ import org.junit.Test;
     public void testIsHoundWinDInvalid() {
         FoxHoundUtils.isHoundWin(defaultPlayers, -5);
     }
-*/
-    // ------------------------- isValidMove -------------------------------
+
+    // ------------------------- isValidMove DONE -------------------------------
 
     @Test
     public void testIsValidMovePositive() {
