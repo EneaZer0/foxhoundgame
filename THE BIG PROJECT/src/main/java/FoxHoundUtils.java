@@ -446,6 +446,8 @@ public class FoxHoundUtils {
         isValid = char_checker(figure, origin, players) && isValid;
         /** Check if the destination letter is in the diagonal of the origin*/
         isValid = in_diagonal(origin, destination) && isValid;
+        /** Check if the movement is only forward of hound */
+        isValid = hound_movement_allowed(figure, origin, destination) && isValid;
 
         return isValid;
     }
@@ -636,6 +638,30 @@ public class FoxHoundUtils {
 
         return final_number;
     }
+    /** FUNCTION TO CHECK IF THE MOVEMENT OF THE HOUNDS IS JUST FORWARD */
+    /**
+     *
+     * @param figure takes the figure to check if it moves in the correct direction
+     * @param origin takes the origin to set the reference
+     * @param destination takes the destination to se if it is correct
+     * @return validates the movement
+     */
+    public static boolean hound_movement_allowed(char figure, String origin, String destination) {
+        boolean valid = true;
+        if (figure == 'H' && (number_coordinate(destination) == number_coordinate(origin) + 1)){
+            valid = true;
+        } else if (figure == 'F') {
+            valid = true;
+        } else if (figure == 'H' && (number_coordinate(destination) < number_coordinate(origin) + 1)){
+            valid = false;
+            System.err.println("ERROR, HOUNDS CAN ONLY MOVE FORWARD");
+        } else {
+            valid = false;
+            System.err.println("ERROR, PICK A HOUND TO MOVE");
+        }
+
+        return valid;
+    }
 
 
 
@@ -713,6 +739,8 @@ public class FoxHoundUtils {
 
         if (isValidMove(dimension,players,figure,positionQuery_array[0],positionQuery_array[1]) == true) {
             FoxHoundUtils.new_players_position(players,positionQuery_array);
+        } else {
+            make_the_step(players,dimension,input,figure);
         }
 
         return players;

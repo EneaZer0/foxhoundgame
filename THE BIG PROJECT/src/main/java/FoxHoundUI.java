@@ -153,16 +153,22 @@ public class FoxHoundUI {
             System.out.println("Provide origin and destination coordinates.\nEnter two positions between A1-H8:");
             input_coordinate = input.nextLine();
             String[] separate_coordinates = input_coordinate.split(" ");
-            invalid_input = !(FoxHoundUtils.input_coordinates_valid(dimension, separate_coordinates));
+            if (separate_coordinates.length == 2) {
+                invalid_input = !(FoxHoundUtils.input_coordinates_valid(dimension, separate_coordinates));
 
-            if (separate_coordinates.length == coordinates.length){
-                for (int i = 0; i < coordinates.length; i++) {
-                    coordinates[i] = separate_coordinates[i];
+                if (separate_coordinates.length == coordinates.length){
+                    for (int i = 0; i < coordinates.length; i++) {
+                        coordinates[i] = separate_coordinates[i];
+                    }
+                } else {
+                    System.err.println("ERROR: Please enter valid coordinate pair separated by space.");
                 }
-            } else {
+                System.out.println("");
+            } else  {
+                invalid_input = true;
                 System.err.println("ERROR: Please enter valid coordinate pair separated by space.");
             }
-            System.out.println("");
+
         }
 
         return coordinates;
