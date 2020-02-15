@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="FoxHoundIOBasicTest_05_update" tests="9" skipped="0" failures="0" errors="0" timestamp="2020-02-15T19:41:33" hostname="MSI" time="0.027">
+<testsuite name="FoxHoundIOBasicTest_05_update" tests="9" skipped="0" failures="0" errors="0" timestamp="2020-02-15T20:01:29" hostname="MSI" time="0.034">
   <properties/>
   <testcase name="testLoadGameInvalidFile" classname="FoxHoundIOBasicTest_05_update" time="0.005"/>
-  <testcase name="testLoadGameValidInput" classname="FoxHoundIOBasicTest_05_update" time="0.007"/>
-  <testcase name="testSaveGamePathNull" classname="FoxHoundIOBasicTest_05_update" time="0.0"/>
+  <testcase name="testLoadGameValidInput" classname="FoxHoundIOBasicTest_05_update" time="0.008"/>
+  <testcase name="testSaveGamePathNull" classname="FoxHoundIOBasicTest_05_update" time="0.001"/>
   <testcase name="testLoadGamePlayersNonDefaultDim" classname="FoxHoundIOBasicTest_05_update" time="0.0"/>
   <testcase name="testLoadGameInvalidFileContent" classname="FoxHoundIOBasicTest_05_update" time="0.004"/>
   <testcase name="testSaveGamePlayersNonDefaultDim" classname="FoxHoundIOBasicTest_05_update" time="0.002"/>
-  <testcase name="testSaveGameInvalidPath" classname="FoxHoundIOBasicTest_05_update" time="0.005"/>
+  <testcase name="testSaveGameInvalidPath" classname="FoxHoundIOBasicTest_05_update" time="0.007"/>
   <testcase name="testLoadGamePathNull" classname="FoxHoundIOBasicTest_05_update" time="0.0"/>
-  <testcase name="testSaveGameValidInput" classname="FoxHoundIOBasicTest_05_update" time="0.003"/>
+  <testcase name="testSaveGameValidInput" classname="FoxHoundIOBasicTest_05_update" time="0.005"/>
   <system-out><![CDATA[The file has been created...
 ]]></system-out>
   <system-err><![CDATA[ERROR, THE FILE DOES NOT EXIST
@@ -24,14 +24,14 @@ ERROR, 2C IS NOT A VALID COORDINATE
 ERROR, THE FILE YOU WANT TO LOAD IS NOT A GAME
 ERROR, NUMBER 9 IS NOT IN THE RANGE OF THE DIMENSION
 ERROR, C9 IS NOT A VALID COORDINATE
-Error in the buffer
+path\to\a\file\that\does\not\exist\game.txt (The system cannot find the path specified)
 java.io.FileNotFoundException: path\to\a\file\that\does\not\exist\game.txt (The system cannot find the path specified)
 	at java.base/java.io.FileOutputStream.open0(Native Method)
 	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:298)
 	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)
 	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:126)
 	at java.base/java.io.FileWriter.<init>(FileWriter.java:66)
-	at FoxHoundIO.saveGame(FoxHoundIO.java:41)
+	at FoxHoundIO.saveGame(FoxHoundIO.java:42)
 	at FoxHoundIOBasicTest_05_update.testSaveGameInvalidPath(FoxHoundIOBasicTest_05_update.java:156)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)

@@ -34,13 +34,13 @@ public class FoxHoundIO {
     if (players.length != 5) {
       throw new IllegalArgumentException("ERROR: Dimensions must be 8");
     }
+
     boolean save = true;
 
     FileWriter writing = null;
     try {
       writing = new FileWriter(String.valueOf(path));
       writing.write(figure);
-
 
       for (int i = 0; i < players.length; i++) {
         writing.write(" " + players[i]);
@@ -50,7 +50,7 @@ public class FoxHoundIO {
 
     } catch (IOException e) {
       save = false;
-      System.err.println("Error in the buffer");
+      System.err.println(e.getMessage());
       e.printStackTrace();
     }
 
