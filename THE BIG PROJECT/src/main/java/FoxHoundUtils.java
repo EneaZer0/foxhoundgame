@@ -758,7 +758,6 @@ public class FoxHoundUtils {
         if (figure == 'H') {
             isHoundWin(players, dimension);
         }
-
         System.out.println("Do you want to save the game now?: (y/n)");
         String answer = input.nextLine();
         while (!(answer.equals("y") || answer.equals("n") ||answer.equals("Y") || answer.equals("N"))){
@@ -844,4 +843,38 @@ public class FoxHoundUtils {
         return !fox_win;
     }
 
+
+    /** ____________________ TASK 6 - SAVING AND LOADING THE GAME ______________________*/
+
+    /** FUNCTION TO SAVE THE LOADED PLAYERS */
+    public static String [] loading_new_players (String[] players) {
+        return players;
+    }
+
+
+
+    public static boolean fileQuery (Scanner input) {
+
+
+
+        return true;
+    }
+
+/** ASKING TO SAVE THE GAME
+ *
+ System.out.println("Do you want to save the game now?: (y/n)");
+ String answer = input.nextLine();
+ while (!(answer.equals("y") || answer.equals("n") ||answer.equals("Y") || answer.equals("N"))){
+ System.out.println("Do you want to save the game now?: (y/n)");
+ answer = input.nextLine();
+ }
+ if (answer.equals("y") || answer.equals("Y") ) {
+ try {
+ FoxHoundIO.prepareSave(players,figure,input);
+ } catch (NullPointerException | IOException error) {
+ System.err.println(error.getMessage());
+ }
+ }
+ *
+ * */
 }

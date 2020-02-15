@@ -5,10 +5,7 @@
  * related operations such as saving and loading a game.
  */
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,72 +15,18 @@ import java.util.Arrays;
 
 public class FoxHoundIO {
 
-  /*
-  public static void creator_file (String[] players, char figure) {
-    FileWriter flwritter = null;
-    try {
-      flwritter = new FileWriter("Save.txt");
-      BufferedWriter bfwritter = new BufferedWriter(flwritter);
-      for (int i = 0; i < players.length; i++) {
-        bfwritter.write(players[i] + " ");
-      }
-      bfwritter.write(figure);
-      bfwritter.close();
-      System.out.printf("The file has been created...");
-
-
-    } catch (IOException e) {
-      e.printStackTrace();
-    } finally {
-      if (flwritter != null) {
-        try {
-          flwritter.close();
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-      }
-    }
-  }
-  */
-
-  /*FileWriter flwritter = null;
-
-    if (!(path.equals("Saver.txt"))) {
-
-      System.err.println("There is already a saved game");
-
-    } else {
-      try {
-        flwritter = new FileWriter("Save.txt");
-        BufferedWriter bfwritter = new BufferedWriter(flwritter);
-        for (int i = 0; i < players.length; i++) {
-          bfwritter.write(players[i] + " ");
-        }
-        bfwritter.write(figure);
-        bfwritter.close();
-        System.out.printf("The file has been created...");
-
-      } catch (IOException e) {
-        save = false;
-        System.err.println("Error in the buffer");
-        e.printStackTrace();
-      } finally {
-        if (flwritter != null) {
-          try {
-            flwritter.close();
-          } catch (IOException e) {
-            save = false;
-            System.err.println("Error closing the file writer");
-            e.printStackTrace();
-          }
-        }
-      }
-    }*/
-
-
+  /** ____________________ TASK 6 - SAVING THE GAME ______________________*/
   // ASK BEFORE AND ENTER THE FILES NAME IN PATH WHEN CALLING THE FUNCTION
+  /** FUNCTION TO SAVE THE GAME */
+  /**
+   *
+   * @param players takes players to save them in order
+   * @param figure = the figure of the actual move the save the figure of the next move
+   * @param path = the path where the user want to save the game / name of the file
+   * @return = if the save has been successful
+   */
   public static boolean saveGame (String[] players, char figure, Path path) {
-    if (players == null || path == null){
+    if (players == null || path == null) {
       throw new NullPointerException("ERROR: Players can't be null");
     }
     if (players.length != 5) {
@@ -93,7 +36,12 @@ public class FoxHoundIO {
     FileWriter writing = null;
     try {
       writing = new FileWriter(String.valueOf(path));
-      writing.write(figure);
+      if (figure == 'F'){
+        writing.write('H');
+      } else if (figure == 'H') {
+        writing.write('F');
+      }
+
       for (int i = 0; i < players.length; i++) {
         writing.write(" " + players[i]);
       }
@@ -108,7 +56,15 @@ public class FoxHoundIO {
 
     return save;
   }
-
+  /** FUNCTION TO ASK THE NAME OF THE FILE WHERE YOU WANT TO SAVE THE GAME */
+  /**
+   *
+   * @param players takes the players to pass them to saveGame
+   * @param figure takes the figure to pass if to saveGame
+   * @param input takes the main scanner to ask the user the name of the file
+   * @return = if the save has been successful
+   * @throws IOException in case it happens
+   */
   public static boolean prepareSave (String[] players, char figure, Scanner input) throws IOException {
     System.out.println("Please enter the name of the file you want to save: ");
     String file_name = input.nextLine();
@@ -126,4 +82,68 @@ public class FoxHoundIO {
     }
     return saved;
   }
+
+  /** ____________________ TASK 6 - LOADING THE GAME ______________________*/
+  public static char loadGame (String[] players, Path path) {
+
+    if (path == null) {
+      throw new NullPointerException("ERROR, PATH CAN NOT BE NULL");
+    } else if (players.length != 5) {
+      throw new IllegalArgumentException("ERROR, PLAYERS MUST BE VALID FOR A 8x8 DIMENSION");
+    }
+
+    char figure = ' ';
+    String[] players_copy = new String[players.length];
+    try {
+      FileReader reading = new FileReader(String.valueOf(path));
+      BufferedReader bufferedReader = new BufferedReader(reading);
+      String line = bufferedReader.readLine();
+      boolean valid = false;
+      String[] saved_txt = line.split(" ");
+      if ((saved_txt.length > 5) && ((saved_txt[0].equals("F")) || (saved_txt[0].equals("H")))){
+        valid = true;
+      } else {
+        System.err.println("ERROR, THE FILE YOU WANT TO LOAD IS NOT A GAME");
+        valid = false;
+        figure = '#';
+      }
+
+      if (valid) {
+        if (saved_txt[0].length() != 1){
+          figure = '#';
+        } else {
+          figure = (saved_txt[0]).charAt(0);
+        }
+        for (int i = 0; i < players.length; i++) {
+
+          if (FoxHoundUtils.coordinate_checker(8, saved_txt[i + 1])){
+            players_copy[i] = saved_txt[i+1];
+          } else {
+            figure = '#';
+            valid = false;
+            break;
+          }
+        }
+      }
+      if (valid) {
+        for (int i = 0; i < players.length; i ++) {
+          players[i] = players_copy[i];
+        }
+      }
+
+      bufferedReader.close();
+
+    } catch (FileNotFoundException e) {
+      figure = '#';
+      e.printStackTrace();
+    } catch (IOException e) {
+      figure = '#';
+      e.printStackTrace();
+    }
+
+    System.out.println(Arrays.toString(players));
+    return figure;
+  }
+
+
 }

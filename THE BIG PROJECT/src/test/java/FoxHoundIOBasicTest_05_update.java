@@ -24,8 +24,7 @@ public class FoxHoundIOBasicTest_05_update {
     // that the game files are located in the working directory or 
     // adapt the tests accordingly!
 
-    // ------------------------- loadGame --------------------
-/*
+    // ------------------------- loadGame DONE --------------------
     private void checkLoadedData(Path input, String[] expectedPlayers, char expectedFigure) {
         String[] players = defaultPlayers;
         char nextFigure = FoxHoundIO.loadGame(players, input);
@@ -110,7 +109,7 @@ public class FoxHoundIOBasicTest_05_update {
         String[] players = {"B1", "D1", "F1", "H1", "J1", "E10"}; 
         FoxHoundIO.loadGame(players, input);
     }
-*/
+
     // ------------------------- saveGame --------------------
 
     private Path getTmpPath() {
