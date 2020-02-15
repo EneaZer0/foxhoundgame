@@ -93,10 +93,10 @@ public class FoxHoundIO {
     FileWriter writing = null;
     try {
       writing = new FileWriter(String.valueOf(path));
-      for (int i = 0; i < players.length; i++) {
-        writing.write(players[i] + " ");
-      }
       writing.write(figure);
+      for (int i = 0; i < players.length; i++) {
+        writing.write(" " + players[i]);
+      }
       System.out.printf("The file has been created...");
       writing.close();
 
