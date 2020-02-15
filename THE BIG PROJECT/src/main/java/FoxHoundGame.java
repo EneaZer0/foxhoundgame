@@ -129,7 +129,7 @@ public class FoxHoundGame {
         //Path path = Paths.get(("C:\\Users\\migue\\OneDrive - University of Edinburgh\\EDINBURGH\\UNI\\SEMESTER 2\\foxhoundgame\\THE BIG PROJECT"));
         //FoxHoundIO.saveGame(players,'F', path);
 
-        FoxHoundIO.loadGame(players, Paths.get("invalidGame01.txt"));
+        // FoxHoundIO.loadGame(players, Paths.get("invalidGame01.txt"));
 
         gameLoop(dimension, players);
 

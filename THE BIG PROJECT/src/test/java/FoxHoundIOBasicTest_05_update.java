@@ -110,7 +110,7 @@ public class FoxHoundIOBasicTest_05_update {
         FoxHoundIO.loadGame(players, input);
     }
 
-    // ------------------------- saveGame --------------------
+    // ------------------------- saveGame DONE--------------------
 
     private Path getTmpPath() {
         try {
@@ -123,7 +123,7 @@ public class FoxHoundIOBasicTest_05_update {
             throw new UncheckedIOException("Saving file test failed.", e);
         }
     }
-/*
+
     @Test
     public void testSaveGameValidInput() {
         String[] expected = {"B3", "C2", "F1", "H3", "F3"};
@@ -146,7 +146,7 @@ public class FoxHoundIOBasicTest_05_update {
         assertArrayEquals("Saved players array not as expected.", expected, players);
         assertEquals("Saved next move not as expected.", expectedMove, nextMove);
     }
-*/
+
     @Test
     public void testSaveGameInvalidPath() {
         String[] expected = defaultPlayers;

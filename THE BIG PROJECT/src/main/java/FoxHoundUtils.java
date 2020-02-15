@@ -2,9 +2,16 @@
 //import org.graalvm.compiler.lir.StandardOp;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.nio.file.Files;
+
+
+
 
 /**
  * A utility class for the fox hound program.
@@ -521,6 +528,13 @@ public class FoxHoundUtils {
         return origin_players;
     }
     /** FUNCTION WHICH CHECKS IF THE FIGURE OF THE PIECE MOVING IS VALID */
+    /**
+     *
+     * @param figure = gets the figure that we want to check
+     * @param origin = check if the origin is valid for that figure (if figure is F origin must be in the last place of players array)
+     * @param players = to compare the position of origin and see if the figure can do that move
+     * @return = if the figure can do that movement
+     */
     public static boolean char_checker (char figure, String origin, String[] players) {
         boolean valid = false;
         int k = 0;
@@ -846,16 +860,15 @@ public class FoxHoundUtils {
 
     /** ____________________ TASK 6 - SAVING AND LOADING THE GAME ______________________*/
 
-    /** FUNCTION TO SAVE THE LOADED PLAYERS */
-    public static String [] loading_new_players (String[] players) {
-        return players;
-    }
-
-
-
     public static boolean fileQuery (Scanner input) {
+        System.out.println("Enter the file name: ");
+        String answer = input.nextLine();
 
+        if (!(answer.contains(".txt"))) {
+            answer = answer + ".txt";
+        }
 
+        Path path = Paths.get(answer);
 
         return true;
     }
