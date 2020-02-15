@@ -112,7 +112,7 @@ public class FoxHoundIOBasicTest_05_update {
     }
 */
     // ------------------------- saveGame --------------------
-/*
+
     private Path getTmpPath() {
         try {
             File tmpFile = File.createTempFile("foxHoundGameSave", ".txt");
@@ -124,7 +124,7 @@ public class FoxHoundIOBasicTest_05_update {
             throw new UncheckedIOException("Saving file test failed.", e);
         }
     }
-
+/*
     @Test
     public void testSaveGameValidInput() {
         String[] expected = {"B3", "C2", "F1", "H3", "F3"};
@@ -154,7 +154,7 @@ public class FoxHoundIOBasicTest_05_update {
         String[] players = expected.clone();
         char nextMove = FoxHoundUtils.FOX_FIELD;
         Path saveFile = Paths.get("path","to","a","file","that","does","not","exist","game.txt");
-        boolean result = FoxHoundIO.saveGame(players, nextMove, saveFile);
+        boolean result = FoxHoundIO.saveGame(players, nextMove,saveFile);
 
         assertFalse("Save not expected to be successful.", result);
         assertArrayEquals("Players array not expected to be modified.", expected, players);
@@ -164,7 +164,7 @@ public class FoxHoundIOBasicTest_05_update {
     public void testSaveGamePathNull() {
         FoxHoundIO.saveGame(defaultPlayers, FoxHoundUtils.FOX_FIELD, null);
     }
-/*
+
     @Test(expected = IllegalArgumentException.class)
     public void testSaveGamePlayersNonDefaultDim() {
         String[] players = {"B1", "D1", "F1", "H1", "J1", "E10"}; 
@@ -172,5 +172,5 @@ public class FoxHoundIOBasicTest_05_update {
         Path saveFile = getTmpPath();
         FoxHoundIO.saveGame(players, nextMove, saveFile);
     }
-  */
+
 }

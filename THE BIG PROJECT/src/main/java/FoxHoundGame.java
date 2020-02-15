@@ -1,7 +1,12 @@
 //import com.sun.imageio.plugins.common.SingleTileRenderedImage;
 
+import java.nio.file.Paths;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Path;
 
 /** 
  * The Main class of the fox hound program.
@@ -25,6 +30,7 @@ public class FoxHoundGame {
      * exits. Additionally, it reduces complexity. 
      */
     private static final Scanner STDIN_SCAN = new Scanner(System.in);
+
 
     /**
      * Swap between fox and hounds to determine the next
@@ -70,6 +76,7 @@ public class FoxHoundGame {
                     break;
                 default:
                     System.err.println("ERROR: invalid menu choice: " + choice);
+
             }
         }
     }
@@ -118,7 +125,9 @@ public class FoxHoundGame {
         // FoxHoundUtils.isValidMove(dimension, players,'F',coordinates_array[0], coordinates_array[1]);
 
         //System.out.println(Arrays.toString(FoxHoundUtils.new_players_position(players, new String[]{"E8", "D7"})) );
-        FoxHoundIO.creator_file(players,'F');
+
+        //Path path = Paths.get(("C:\\Users\\migue\\OneDrive - University of Edinburgh\\EDINBURGH\\UNI\\SEMESTER 2\\foxhoundgame\\THE BIG PROJECT"));
+        //FoxHoundIO.saveGame(players,'F', path);
 
         gameLoop(dimension, players);
 
