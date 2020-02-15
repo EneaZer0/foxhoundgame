@@ -1,3 +1,5 @@
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Objects;
@@ -173,6 +175,40 @@ public class FoxHoundUI {
 
         return coordinates;
     }
+
+
+
+    /** ____________________ TASK 6 - SAVING AND LOADING THE GAME ______________________*/
+
+    public static Path fileQuery (Scanner input) {
+        System.out.println("Enter file path: ");
+        String answer = input.nextLine();
+
+        if (!(answer.contains(".txt"))) {
+            answer = answer + ".txt";
+        }
+        Path path = Paths.get(answer);
+
+        return path;
+    }
+
+/** ASKING TO SAVE THE GAME
+ *
+ System.out.println("Do you want to save the game now?: (y/n)");
+ String answer = input.nextLine();
+ while (!(answer.equals("y") || answer.equals("n") ||answer.equals("Y") || answer.equals("N"))){
+ System.out.println("Do you want to save the game now?: (y/n)");
+ answer = input.nextLine();
+ }
+ if (answer.equals("y") || answer.equals("Y") ) {
+ try {
+ FoxHoundIO.prepareSave(players,figure,input);
+ } catch (NullPointerException | IOException error) {
+ System.err.println(error.getMessage());
+ }
+ }
+ *
+ * */
 
 }
 

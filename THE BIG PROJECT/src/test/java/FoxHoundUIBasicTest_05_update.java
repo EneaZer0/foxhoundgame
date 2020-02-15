@@ -196,8 +196,8 @@ public class FoxHoundUIBasicTest_05_update {
 
         assertArrayEquals("Query return coordinates not as expected.", expected, result);
     }
-/*
-    // ------------------------- fileQuery --------------------
+
+    // ------------------------- fileQuery DONE --------------------
 
     private void checkFileQueryOutput(String expectedStdOut, String expectedStdErr, String inputLine) {
         Scanner TEST_IN = new Scanner(new ByteArrayInputStream(inputLine.getBytes()));
@@ -242,5 +242,5 @@ public class FoxHoundUIBasicTest_05_update {
         assertEquals("Resulting path not as expected.", expected, result.toString());
     }
 
- */
+
 }
