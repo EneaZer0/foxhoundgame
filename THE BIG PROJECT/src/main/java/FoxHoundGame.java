@@ -71,9 +71,16 @@ public class FoxHoundGame {
                     FoxHoundUtils.make_the_step(players,dim,STDIN_SCAN,turn);
                     turn = swapPlayers(turn);
                     break;
+                case FoxHoundUI.MENU_SAVE:
+                    FoxHoundIO.saveGame(players, turn, FoxHoundUI.fileQuery(STDIN_SCAN));
+                    break;
+                case FoxHoundUI.MENU_LOAD:
+                    FoxHoundIO.loadGame(players,FoxHoundUI.fileQuery(STDIN_SCAN));
+                    break;
                 case FoxHoundUI.MENU_EXIT:
                     exit = true;
                     break;
+
                 default:
                     System.err.println("ERROR: invalid menu choice: " + choice);
 

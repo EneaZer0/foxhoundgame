@@ -772,7 +772,7 @@ public class FoxHoundUtils {
         if (figure == 'H') {
             isHoundWin(players, dimension);
         }
-        System.out.println("Do you want to save the game now?: (y/n)");
+        /*System.out.println("Do you want to save the game now?: (y/n)");
         String answer = input.nextLine();
         while (!(answer.equals("y") || answer.equals("n") ||answer.equals("Y") || answer.equals("N"))){
             System.out.println("Do you want to save the game now?: (y/n)");
@@ -784,7 +784,7 @@ public class FoxHoundUtils {
             } catch (NullPointerException | IOException error) {
                 System.err.println(error.getMessage());
             }
-        }
+        }*/
 
         return players;
     }

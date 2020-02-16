@@ -13,15 +13,20 @@ import java.util.Objects;
 public class FoxHoundUI {
 
     /** Number of main menu entries. */
-    private static final int MENU_ENTRIES = 2;
+    private static final int MENU_ENTRIES = 4;
     /** Main menu display string. */
     private static final String MAIN_MENU =
-        "\n1. Move\n2. Exit\n\nEnter 1 - 2:";
+        "\n1. Move\n2. Save Game\n3. Load Game\n4. Exit\n\nEnter 1 - 2 - 3 - 4:";
 
     /** Menu entry to select a move action. */
     public static final int MENU_MOVE = 1;
+    /** Menu entry to save the program. */
+    public static final int MENU_SAVE = 2;
+    /** Menu entry to load the program. */
+    public static final int MENU_LOAD = 3;
     /** Menu entry to terminate the program. */
-    public static final int MENU_EXIT = 2;
+    public static final int MENU_EXIT = 4;
+
 
 
 
@@ -191,6 +196,7 @@ public class FoxHoundUI {
 
         return path;
     }
+
 
 /** ASKING TO SAVE THE GAME
  *

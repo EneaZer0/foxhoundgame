@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="FoxHoundUIBasicTest_05_update" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-02-15T20:08:59" hostname="MSI" time="0.017">
+<testsuite name="FoxHoundUIBasicTest_05_update" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-02-16T00:08:19" hostname="MSI" time="0.017">
   <properties/>
   <testcase name="testDisplayBoard" classname="FoxHoundUIBasicTest_05_update" time="0.003"/>
   <testcase name="testPositionQueryMessage" classname="FoxHoundUIBasicTest_05_update" time="0.006"/>
-  <testcase name="testPositionQueryError" classname="FoxHoundUIBasicTest_05_update" time="0.001"/>
-  <testcase name="testPositionQueryReturn" classname="FoxHoundUIBasicTest_05_update" time="0.005"/>
+  <testcase name="testPositionQueryError" classname="FoxHoundUIBasicTest_05_update" time="0.0"/>
+  <testcase name="testPositionQueryReturn" classname="FoxHoundUIBasicTest_05_update" time="0.004"/>
   <testcase name="testFileQueryReturn" classname="FoxHoundUIBasicTest_05_update" time="0.001"/>
-  <testcase name="testFileQueryMessage" classname="FoxHoundUIBasicTest_05_update" time="0.0"/>
+  <testcase name="testFileQueryMessage" classname="FoxHoundUIBasicTest_05_update" time="0.001"/>
   <system-out><![CDATA[Provide origin and destination coordinates.
 Enter two positions between A1-H8:
 

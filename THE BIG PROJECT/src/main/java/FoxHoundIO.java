@@ -67,19 +67,12 @@ public class FoxHoundIO {
    * @return = if the save has been successful
    * @throws IOException in case it happens
    */
-  public static boolean prepareSave (String[] players, char figure, Scanner input) throws IOException {
-    System.out.println("Please enter the name of the file you want to save: ");
-    String file_name = input.nextLine();
-    boolean txt_included = file_name.contains(".txt");
-    if (txt_included == false) {
-      file_name = file_name + ".txt";
-    }
+  public static boolean prepareSave (String[] players, char figure, Path path, Scanner input) throws IOException {
     boolean saved = false;
-    if (Files.exists(Paths.get(file_name))) {
+    if (Files.exists(path)) {
       System.err.println("ERROR, THE FILE ALREADY EXISTS");
-      prepareSave(players,figure,input);
+      FoxHoundUI.fileQuery(input);
     } else {
-      Path path = Paths.get(file_name);
       saved = saveGame(players, figure, path);
     }
     return saved;
