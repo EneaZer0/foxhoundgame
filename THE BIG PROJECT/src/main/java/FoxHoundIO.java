@@ -26,56 +26,38 @@ public class FoxHoundIO {
    * @param path = the path where the user want to save the game / name of the file
    * @return = if the save has been successful
    */
-
   public static boolean saveGame (String[] players, char figure, Path path) {
+    boolean save = false;
     if (players == null || path == null) {
       throw new NullPointerException("ERROR: Players can't be null");
     }
     if (players.length != 5) {
       throw new IllegalArgumentException("ERROR: Dimensions must be 8");
     }
-
-    boolean save = true;
-
-    FileWriter writing = null;
-    try {
-      writing = new FileWriter(String.valueOf(path));
-      writing.write(figure);
-
-      for (int i = 0; i < players.length; i++) {
-        writing.write(" " + players[i]);
-      }
-      System.out.println("The file has been created...");
-      writing.close();
-
-    } catch (IOException e) {
-      save = false;
-      System.err.println(e.getMessage());
-      e.printStackTrace();
-    }
-
-    return save;
-  }
-
-
-  /** FUNCTION TO ASK THE NAME OF THE FILE WHERE YOU WANT TO SAVE THE GAME */
-  /**
-   *
-   * @param players takes the players to pass them to saveGame
-   * @param figure takes the figure to pass if to saveGame
-   * @param input takes the main scanner to ask the user the name of the file
-   * @return = if the save has been successful
-   * @throws IOException in case it happens
-   */
-  public static boolean prepareSave (String[] players, char figure, Path path, Scanner input) throws IOException {
-    boolean saved = false;
     if (Files.exists(path)) {
       System.err.println("ERROR, THE FILE ALREADY EXISTS");
-      FoxHoundUI.fileQuery(input);
+
     } else {
-      saved = saveGame(players, figure, path);
+      save = true;
+
+      FileWriter writing = null;
+      try {
+        writing = new FileWriter(String.valueOf(path));
+        writing.write(figure);
+
+        for (int i = 0; i < players.length; i++) {
+          writing.write(" " + players[i]);
+        }
+        System.out.println("The file has been created...");
+        writing.close();
+
+      } catch (IOException e) {
+        save = false;
+        System.err.println(e.getMessage());
+        e.printStackTrace();
+      }
     }
-    return saved;
+    return save;
   }
   /** ____________________ TASK 6 - LOADING THE GAME ______________________*/
   /**
@@ -86,7 +68,7 @@ public class FoxHoundIO {
    */
   public static char loadGame (String[] players, Path path) {
     char figure = ' ';
-    if (path == null) {
+    if (path == null || players == null) {
       throw new NullPointerException("ERROR, PATH CAN NOT BE NULL");
     } else if (players.length != 5) {
       throw new IllegalArgumentException("ERROR, PLAYERS MUST BE VALID FOR A 8x8 DIMENSION");

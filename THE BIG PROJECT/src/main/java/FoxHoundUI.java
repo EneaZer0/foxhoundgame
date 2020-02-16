@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.objects.XNull;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -29,7 +31,6 @@ public class FoxHoundUI {
 
 
 
-
     /** #__________________ DISPLAY THE BOARD __________________# */
     /**
      *
@@ -37,13 +38,22 @@ public class FoxHoundUI {
      * @param dimension = takes the dimension of the board
      */
     public static void displayBoard(String[] players, int dimension) {
-        /** ___________________ PRINTING THE BOARD ____________________ */
-        /** PRINTING ONE FULL BOARD IN MATH VALUES */
-        //FoxHoundUtils.griding(FoxHoundUtils.letter_recognition(players), FoxHoundUtils.number_recognition(players), dimension, 0);
-        /** THIS FUNCTION PRINTS THE BOARD - IT TAKES GRIDING (IS A ARRAY[][]), LETTERS_ARRAY, NUMBERS_ARRAY & DIMENSION */
-        FoxHoundUtils.board(
-                FoxHoundUtils.griding(FoxHoundUtils.letter_recognition(players),FoxHoundUtils.number_recognition(players), dimension, 0),
-                FoxHoundUI.letters_array(dimension), FoxHoundUI.numbers_array(dimension), dimension);
+        if (dimension == 0 || players == null) {
+            throw new NullPointerException("ERROR, PARAMETERS CAN'T BE NULL");
+        } else {
+            /** ___________________ PRINTING THE BOARD ____________________ */
+            /** PRINTING ONE FULL BOARD IN MATH VALUES */
+            //FoxHoundUtils.griding(FoxHoundUtils.letter_recognition(players), FoxHoundUtils.number_recognition(players), dimension, 0);
+            /** THIS FUNCTION PRINTS THE BOARD - IT TAKES GRIDING (IS A ARRAY[][]), LETTERS_ARRAY, NUMBERS_ARRAY & DIMENSION */
+            try {
+                FoxHoundUtils.board(
+                        FoxHoundUtils.griding(FoxHoundUtils.letter_recognition(players),FoxHoundUtils.number_recognition(players), dimension, 0),
+                        FoxHoundUI.letters_array(dimension), FoxHoundUI.numbers_array(dimension), dimension);
+            } catch (NullPointerException error) {
+                System.err.println(error.getMessage());
+            }
+        }
+
 
         //System.out.println(FoxHoundUtils.line_diagram(FoxHoundUtils.letter_recognition(players), FoxHoundUtils.number_recognition(players), dimension, 1));
     }
@@ -63,19 +73,24 @@ public class FoxHoundUI {
          * digits of only one digit to make them 2
          *
          */
-        if (dimension < 10) {
-            for (int i = 0; i < dimension; i++) {
-                numbers_array[i] = String.valueOf(i + 1); // The numbers start at 1 (not at 0);
-            }
+        if (dimension == 0) {
+            throw new NullPointerException("ERROR, DIMENSION CAN`T BE NULL");
         } else {
-            for(int i = 0; i < 9; i++) {
-                String number = "0" + String.valueOf(i + 1);
-                numbers_array[i] = number;
-            }
-            for(int i = 9; i < dimension ; i++) {
-                numbers_array[i] = String.valueOf(i + 1);
+            if (dimension < 10) {
+                for (int i = 0; i < dimension; i++) {
+                    numbers_array[i] = String.valueOf(i + 1); // The numbers start at 1 (not at 0);
+                }
+            } else {
+                for(int i = 0; i < 9; i++) {
+                    String number = "0" + String.valueOf(i + 1);
+                    numbers_array[i] = number;
+                }
+                for(int i = 9; i < dimension ; i++) {
+                    numbers_array[i] = String.valueOf(i + 1);
+                }
             }
         }
+
         // System.out.println(Arrays.toString(numbers_array));
         return  numbers_array;
     }
@@ -87,11 +102,15 @@ public class FoxHoundUI {
      */
     public static String letters_array (int dimension) {
         String letters_array   = "";
-
-        for(int i = 0; i < dimension; i++) {
-            String letter = String.valueOf((char) (65 + i));
-            letters_array = letters_array + letter;
+        if (dimension == 0){
+            throw new NullPointerException("ERROR, DIMENSION CANT BE NULL");
+        } else  {
+            for(int i = 0; i < dimension; i++) {
+                String letter = String.valueOf((char) (65 + i));
+                letters_array = letters_array + letter;
+            }
         }
+
         // System.out.println(letters_array);
 
         return letters_array;
@@ -141,11 +160,6 @@ public class FoxHoundUI {
 
 
     /** #__________________ ASKING FOR COORDINATES __________________# */
-
-    // int dimension
-    // Scanner reading
-    // Check if the coordinates are inside the board
-
     /**
      *
      * @param dimension = gets the dimension to check if the coordinates are valid
@@ -156,26 +170,30 @@ public class FoxHoundUI {
         boolean invalid_input = true;
         String[] coordinates = new String[2];
 
-        while (invalid_input) {
-            System.out.println("Provide origin and destination coordinates.\nEnter two positions between A1-H8:");
-            input_coordinate = input.nextLine();
-            String[] separate_coordinates = input_coordinate.split(" ");
-            if (separate_coordinates.length == 2) {
-                invalid_input = !(FoxHoundUtils.input_coordinates_valid(dimension, separate_coordinates));
+        if (dimension == 0 ||input == null) {
+            throw new NullPointerException("ERROR, THE PARAMETERS CANT BE NULL");
+        } else {
+            while (invalid_input) {
+                System.out.println("Provide origin and destination coordinates.\nEnter two positions between A1-H8:");
+                input_coordinate = input.nextLine();
+                String[] separate_coordinates = input_coordinate.split(" ");
+                if (separate_coordinates.length == 2) {
+                    invalid_input = !(FoxHoundUtils.input_coordinates_valid(dimension, separate_coordinates));
 
-                if (separate_coordinates.length == coordinates.length){
-                    for (int i = 0; i < coordinates.length; i++) {
-                        coordinates[i] = separate_coordinates[i];
+                    if (separate_coordinates.length == coordinates.length){
+                        for (int i = 0; i < coordinates.length; i++) {
+                            coordinates[i] = separate_coordinates[i];
+                        }
+                    } else {
+                        System.err.println("ERROR: Please enter valid coordinate pair separated by space.");
                     }
-                } else {
+                    System.out.println("");
+                } else  {
+                    invalid_input = true;
                     System.err.println("ERROR: Please enter valid coordinate pair separated by space.");
                 }
-                System.out.println("");
-            } else  {
-                invalid_input = true;
-                System.err.println("ERROR: Please enter valid coordinate pair separated by space.");
-            }
 
+            }
         }
 
         return coordinates;
@@ -183,38 +201,30 @@ public class FoxHoundUI {
 
 
 
-    /** ____________________ TASK 6 - SAVING AND LOADING THE GAME ______________________*/
-
+    /** ________ TASK 6 - ASKING FOR THE NAME OF THE FILE THE USER WANTS TO LOAD OR TO SAVE  __________*/
+    /**
+     *
+     * @param input = takes the name of the file that is going to be loaded or saved and transform to a valid path
+     * @return = the path of the file that is going to be loaded or saved
+     */
     public static Path fileQuery (Scanner input) {
-        System.out.println("Enter file path: ");
-        String answer = input.nextLine();
+        Path path;
 
-        if (!(answer.contains(".txt"))) {
-            answer = answer + ".txt";
+        if (input == null) {
+            throw new NullPointerException("ERROR, INPUT CAN'T BE NULL");
+        } else {
+            System.out.println("Enter file path: ");
+            String answer = input.nextLine();
+
+            if (!(answer.contains(".txt"))) {
+                answer = answer + ".txt";
+            }
+            path = Paths.get(answer);
+
         }
-        Path path = Paths.get(answer);
 
         return path;
     }
-
-
-/** ASKING TO SAVE THE GAME
- *
- System.out.println("Do you want to save the game now?: (y/n)");
- String answer = input.nextLine();
- while (!(answer.equals("y") || answer.equals("n") ||answer.equals("Y") || answer.equals("N"))){
- System.out.println("Do you want to save the game now?: (y/n)");
- answer = input.nextLine();
- }
- if (answer.equals("y") || answer.equals("Y") ) {
- try {
- FoxHoundIO.prepareSave(players,figure,input);
- } catch (NullPointerException | IOException error) {
- System.err.println(error.getMessage());
- }
- }
- *
- * */
 
 }
 

@@ -55,37 +55,61 @@ public class FoxHoundGame {
      * @param players current position of all figures on the board in board coordinates
      */
     private static void gameLoop(int dim, String[] players) {
+        if (dim == 0 || players == null) {
+            throw new NullPointerException("ERROR, PARAMETERS CAN`T BE NULL");
+        } else {
+            // start each game with the Fox
+            char turn = FoxHoundUtils.FOX_FIELD;
+            boolean exit = false;
+            while(!exit) {
+                System.out.println("\n#################################");
+                try{
+                    FoxHoundUI.displayBoard(players, dim);
+                } catch (NullPointerException error) {
+                    System.err.println(error.getMessage());
+                }
 
-        // start each game with the Fox
-        char turn = FoxHoundUtils.FOX_FIELD;
-        boolean exit = false;
-        while(!exit) {
-            System.out.println("\n#################################");
-            FoxHoundUI.displayBoard(players, dim);
+                int choice = FoxHoundUI.mainMenuQuery(turn, STDIN_SCAN);
 
-            int choice = FoxHoundUI.mainMenuQuery(turn, STDIN_SCAN);
-            
-            // handle menu choice
-            switch(choice) {
-                case FoxHoundUI.MENU_MOVE:
-                    FoxHoundUtils.make_the_step(players,dim,STDIN_SCAN,turn);
-                    turn = swapPlayers(turn);
-                    break;
-                case FoxHoundUI.MENU_SAVE:
-                    FoxHoundIO.saveGame(players, turn, FoxHoundUI.fileQuery(STDIN_SCAN));
-                    break;
-                case FoxHoundUI.MENU_LOAD:
-                    FoxHoundIO.loadGame(players,FoxHoundUI.fileQuery(STDIN_SCAN));
-                    break;
-                case FoxHoundUI.MENU_EXIT:
-                    exit = true;
-                    break;
+                // handle menu choice
+                switch(choice) {
+                    case FoxHoundUI.MENU_MOVE:
+                        try {
+                            FoxHoundUtils.make_the_step(players,dim,STDIN_SCAN,turn);
+                            turn = swapPlayers(turn);
+                        } catch (NullPointerException error) {
+                            System.err.println(error.getMessage());
+                        }
+                        break;
+                    case FoxHoundUI.MENU_SAVE:
+                        try {
+                            FoxHoundIO.saveGame(players, turn, FoxHoundUI.fileQuery(STDIN_SCAN));
+                        } catch (IllegalArgumentException error) {
+                            System.err.println(error.getMessage());
+                        } catch (NullPointerException error) {
+                            System.err.println(error.getMessage());
+                        }
+                        break;
+                    case FoxHoundUI.MENU_LOAD:
+                        try {
+                            FoxHoundIO.loadGame(players,FoxHoundUI.fileQuery(STDIN_SCAN));
+                        } catch (NullPointerException error) {
+                            System.err.println(error.getMessage());
+                        } catch (IllegalArgumentException error) {
+                            System.err.println(error.getMessage());
+                        }
+                        break;
+                    case FoxHoundUI.MENU_EXIT:
+                        exit = true;
+                        break;
 
-                default:
-                    System.err.println("ERROR: invalid menu choice: " + choice);
+                    default:
+                        System.err.println("ERROR: invalid menu choice: " + choice);
 
+                }
             }
         }
+
     }
 
     /**
@@ -111,36 +135,20 @@ public class FoxHoundGame {
         if (args.length != 0) {
             dimension = Integer.parseInt(args[0]);
         }
-        dimension = FoxHoundUtils.dimension_check(dimension);
-
-        String[] players = FoxHoundUtils.initialisePositions(dimension);
-
-        /** This is to check if the dimensions are correct */
-        //System.out.println(players[0]);
-        String initial_game_pos = Arrays.toString(players);
-        System.out.println(initial_game_pos);
-
-        /** This is to check if the letter_coordinate reader works */
-        /*try {
-            System.out.println("The movement is valid: " + FoxHoundUtils.isValidMove(8,players,'H',"E8","D7"));
-        } catch (IllegalArgumentException error){
+        try {
+            dimension = FoxHoundUtils.dimension_check(dimension);
+        } catch (NullPointerException error) {
+            System.err.println(error.getMessage());
+            dimension = FoxHoundUtils.DEFAULT_DIM;
+        }
+        try {
+            String[] players = FoxHoundUtils.initialisePositions(dimension);
+            gameLoop(dimension, players);
+        } catch (NullPointerException error) {
+            System.err.println(error.getMessage());
+        } catch (IllegalArgumentException error) {
             System.err.println(error.getMessage());
         }
-        */
-
-
-        // FoxHoundUtils.isValidMove(dimension, players,'F',coordinates_array[0], coordinates_array[1]);
-
-        //System.out.println(Arrays.toString(FoxHoundUtils.new_players_position(players, new String[]{"E8", "D7"})) );
-
-        //Path path = Paths.get(("C:\\Users\\migue\\OneDrive - University of Edinburgh\\EDINBURGH\\UNI\\SEMESTER 2\\foxhoundgame\\THE BIG PROJECT"));
-        //FoxHoundIO.saveGame(players,'F', path);
-
-        // FoxHoundIO.loadGame(players, Paths.get("invalidGame01.txt"));
-
-        gameLoop(dimension, players);
-
-
 
 
         // Close the scanner reading the standard input stream       

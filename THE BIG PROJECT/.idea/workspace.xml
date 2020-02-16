@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cb94a3e-caa6-42a1-99b9-ea23dc31e73f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/C4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DW.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PersonalTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,15 +16,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/D7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/D7.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/FoxHoundGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/FoxHoundGame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/FoxHoundIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/FoxHoundIO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/FoxHoundUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/FoxHoundUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/FoxHoundUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/FoxHoundUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/FoxHoundUIBasicTest_05_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/FoxHoundUIBasicTest_05_update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/FoxHoundUIBasicTest_05_update.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-FoxHoundUIBasicTest_05_update.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-FoxHoundUIBasicTest_05_update.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-FoxHoundUIBasicTest_05_update.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FoxHoundGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FoxHoundGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FoxHoundIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FoxHoundIO.java" afterDir="false" />
@@ -51,6 +55,13 @@
   <component name="FavoritesManager">
     <favorites_list name="THE BIG PROJECT" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -69,7 +80,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../OOP/oop_Inf1B_exercises/TUTORIAL/TUTORIAL 3" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -78,6 +89,7 @@
     <configuration name="FoxHoundGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FoxHoundGame" />
       <module name="THE_BIG_PROJECT.main" />
+      <option name="PROGRAM_PARAMETERS" value="3000" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,12 +134,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FoxHoundUIBasicTest_05_update.testFileQueryMessage" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FoxHoundUtilsBasicTest_05_update" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;FoxHoundUIBasicTest_05_update.testFileQueryMessage&quot;" />
+        <option name="scriptParameters" value="--tests &quot;FoxHoundUtilsBasicTest_05_update&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -142,12 +154,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FoxHoundUIBasicTest_05_update.testFileQueryReturn" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FoxHoundUtilsBasicTest_05_update.testIsFoxWinNull" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;FoxHoundUIBasicTest_05_update.testFileQueryReturn&quot;" />
+        <option name="scriptParameters" value="--tests &quot;FoxHoundUtilsBasicTest_05_update.testIsFoxWinNull&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -163,19 +175,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Gradle.FoxHoundIOBasicTest_05_update" />
-      <item itemvalue="Gradle.FoxHoundUIBasicTest_05_update.testFileQueryMessage" />
-      <item itemvalue="Gradle.FoxHoundUIBasicTest_05_update.testFileQueryReturn" />
-      <item itemvalue="Gradle.FoxHoundUIBasicTest_05_update" />
       <item itemvalue="Application.FoxHoundGame" />
+      <item itemvalue="Gradle.FoxHoundUIBasicTest_05_update" />
+      <item itemvalue="Gradle.FoxHoundUtilsBasicTest_05_update" />
+      <item itemvalue="Gradle.FoxHoundUtilsBasicTest_05_update.testIsFoxWinNull" />
+      <item itemvalue="Gradle.FoxHoundIOBasicTest_05_update" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FoxHoundGame" />
+        <item itemvalue="Gradle.FoxHoundUtilsBasicTest_05_update" />
         <item itemvalue="Gradle.FoxHoundUIBasicTest_05_update" />
-        <item itemvalue="Gradle.FoxHoundUIBasicTest_05_update.testFileQueryReturn" />
-        <item itemvalue="Gradle.FoxHoundUIBasicTest_05_update.testFileQueryMessage" />
         <item itemvalue="Gradle.FoxHoundIOBasicTest_05_update" />
+        <item itemvalue="Application.FoxHoundGame" />
+        <item itemvalue="Gradle.FoxHoundUtilsBasicTest_05_update.testIsFoxWinNull" />
       </list>
     </recent_temporary>
   </component>
@@ -242,7 +254,8 @@
       <workItem from="1581775088420" duration="571000" />
       <workItem from="1581775704703" duration="483000" />
       <workItem from="1581776295347" duration="108000" />
-      <workItem from="1581776683556" duration="17103000" />
+      <workItem from="1581776683556" duration="17361000" />
+      <workItem from="1581875738695" duration="12549000" />
     </task>
     <servers />
   </component>
@@ -286,14 +299,15 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2610" y="276" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581797182591" />
-    <state x="144" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581727529459">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2064" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581888613550">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="102" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872@0.0.1368.872" timestamp="1580988853436" />
     <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580778824220" />
     <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784543710" />
     <state x="2016" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580646398952" />
     <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654371019" />
+    <state x="2064" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581888613550" />
     <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1581641203275" />
     <state x="144" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581727529459" />
     <state x="2036" y="117" width="1688" height="806" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1581797373790">
@@ -318,13 +332,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580781932068" />
-    <state x="505" y="118" key="FileChooserDialogImpl" timestamp="1581628524653">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2551" y="149" key="FileChooserDialogImpl" timestamp="1581875762811">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="505" y="118" key="FileChooserDialogImpl/0.0.1536.824/1920.-747.1368.872@0.0.1536.824" timestamp="1580934603424" />
     <state x="2341" y="97" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580644652396" />
+    <state x="2551" y="149" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581875762811" />
     <state x="505" y="118" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1581628524653" />
-    <state width="1877" height="226" key="GridCell.Tab.0.bottom" timestamp="1581812073729">
+    <state width="1877" height="179" key="GridCell.Tab.0.bottom" timestamp="1581894484671">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="227" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1581704604561" />
@@ -332,11 +347,11 @@
     <state width="1493" height="666" key="GridCell.Tab.0.bottom/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580785816587" />
     <state width="1237" height="152" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
-    <state width="1877" height="226" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581812073729" />
+    <state width="1877" height="179" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581894484671" />
     <state width="1493" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581652657764" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1581776189079" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581730811323" />
-    <state width="1877" height="226" key="GridCell.Tab.0.center" timestamp="1581812073729">
+    <state width="1877" height="179" key="GridCell.Tab.0.center" timestamp="1581894484671">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="227" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1581704604561" />
@@ -344,11 +359,11 @@
     <state width="1493" height="666" key="GridCell.Tab.0.center/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580785816587" />
     <state width="1237" height="152" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
-    <state width="1877" height="226" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581812073729" />
+    <state width="1877" height="179" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581894484671" />
     <state width="1493" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581652657763" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1581776189079" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581730811323" />
-    <state width="1877" height="226" key="GridCell.Tab.0.left" timestamp="1581812073729">
+    <state width="1877" height="179" key="GridCell.Tab.0.left" timestamp="1581894484671">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="227" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1581704604561" />
@@ -356,11 +371,11 @@
     <state width="1493" height="666" key="GridCell.Tab.0.left/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580785816587" />
     <state width="1237" height="152" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
-    <state width="1877" height="226" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581812073729" />
+    <state width="1877" height="179" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581894484671" />
     <state width="1493" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581652657763" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1581776189079" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581730811322" />
-    <state width="1877" height="226" key="GridCell.Tab.0.right" timestamp="1581812073729">
+    <state width="1877" height="179" key="GridCell.Tab.0.right" timestamp="1581894484671">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="227" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1581704604561" />
@@ -368,11 +383,11 @@
     <state width="1493" height="666" key="GridCell.Tab.0.right/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580785816587" />
     <state width="1237" height="152" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734494" />
-    <state width="1877" height="226" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581812073729" />
+    <state width="1877" height="179" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581894484671" />
     <state width="1493" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581652657764" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1581776189079" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581730811323" />
-    <state width="1045" height="226" key="GridCell.Tab.1.bottom" timestamp="1581811722600">
+    <state width="1877" height="226" key="GridCell.Tab.1.bottom" timestamp="1581883418324">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="281" key="GridCell.Tab.1.bottom/0.0.1368.872@0.0.1368.872" timestamp="1580989722624" />
@@ -380,10 +395,10 @@
     <state width="1493" height="201" key="GridCell.Tab.1.bottom/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784939716" />
     <state width="1237" height="152" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
-    <state width="1045" height="226" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581811722600" />
+    <state width="1877" height="226" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581883418324" />
     <state width="831" height="168" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581651291036" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581730811319" />
-    <state width="1045" height="226" key="GridCell.Tab.1.center" timestamp="1581811722600">
+    <state width="1877" height="226" key="GridCell.Tab.1.center" timestamp="1581883418323">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="281" key="GridCell.Tab.1.center/0.0.1368.872@0.0.1368.872" timestamp="1580989722624" />
@@ -391,10 +406,10 @@
     <state width="1493" height="201" key="GridCell.Tab.1.center/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784939716" />
     <state width="1237" height="152" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
-    <state width="1045" height="226" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581811722600" />
+    <state width="1877" height="226" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581883418323" />
     <state width="831" height="168" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1581651291036" />
     <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581730811319" />
-    <state width="1045" height="226" key="GridCell.Tab.1.left" timestamp="1581811722600">
+    <state width="1877" height="226" key="GridCell.Tab.1.left" timestamp="1581883418323">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="281" key="GridCell.Tab.1.left/0.0.1368.872@0.0.1368.872" timestamp="1580989722624" />
@@ -402,10 +417,10 @@
     <state width="1493" height="201" key="GridCell.Tab.1.left/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784939716" />
     <state width="1237" height="152" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
-    <state width="1045" height="226" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581811722600" />
+    <state width="1877" height="226" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581883418323" />
     <state width="831" height="168" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1581651291036" />
     <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581730811319" />
-    <state width="1045" height="226" key="GridCell.Tab.1.right" timestamp="1581811722600">
+    <state width="1877" height="226" key="GridCell.Tab.1.right" timestamp="1581883418323">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="281" key="GridCell.Tab.1.right/0.0.1368.872@0.0.1368.872" timestamp="1580989722624" />
@@ -413,7 +428,7 @@
     <state width="1493" height="201" key="GridCell.Tab.1.right/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784939716" />
     <state width="1237" height="152" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580647797391" />
     <state width="1493" height="196" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1368.872@0.0.1536.824" timestamp="1580654734427" />
-    <state width="1045" height="226" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581811722600" />
+    <state width="1877" height="226" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581883418323" />
     <state width="831" height="168" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1581651291036" />
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581730811319" />
     <state x="490" y="154" width="540" height="524" key="StructurePopup" timestamp="1580765000382">
@@ -424,13 +439,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="775" height="419" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1580869430726" />
-    <state x="465" y="238" width="607" height="309" key="com.intellij.ide.util.TipDialog" timestamp="1581776683720">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2501" y="300" width="607" height="309" key="com.intellij.ide.util.TipDialog" timestamp="1581875740394">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="252" width="607" height="309" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1581711458728" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-2736.0.1368.872@0.0.1536.824" timestamp="1580784535332" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.-747.1368.872@0.0.1536.824" timestamp="1580934567252" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1581776683720" />
+    <state x="2501" y="300" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581875740394" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1581711545917" />
     <state x="581" y="300" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1581776296704" />
     <state x="581" y="300" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581775089203" />
@@ -453,17 +469,6 @@
     <state x="364" y="1" width="807" height="822" key="search.everywhere.popup/0.0.1536.824/-2736.-645.1368.872@0.0.1536.824" timestamp="1580775644135" />
     <state x="2223" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1280.680@1920.0.1280.680" timestamp="1580644949917" />
     <state x="364" y="1" width="807" height="822" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1581626007213" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/FoxHoundUI.java</url>
-          <line>188</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/THE_BIG_PROJECT$FoxHoundUtilsBasicTest_testInitialisePositionsDefaultDim.ic" NAME="FoxHoundUtilsBasicTest.testInitialisePositionsDefaultDim Coverage Results" MODIFIED="1580784948537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

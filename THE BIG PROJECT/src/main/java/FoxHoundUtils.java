@@ -49,13 +49,16 @@ public class FoxHoundUtils {
      */
     public static String alphabet_margin (int dimension){
         String alphabet_margin = "";
-
-        if (dimension < 10) {
-            alphabet_margin = "  ";
+        if (dimension == 0) {
+            throw new NullPointerException("ERROR, DIMENSIONS CAN'T BE NULL");
         } else {
-            alphabet_margin = "   ";
-        }
+            if (dimension < 10) {
+                alphabet_margin = "  ";
+            } else {
+                alphabet_margin = "   ";
+            }
 
+        }
         return alphabet_margin;
     }
 
@@ -75,8 +78,12 @@ public class FoxHoundUtils {
         /** First, check if the dimension we get is valid
          * if it is smaller than the MIN_DIM or bigger than the
          * MAX_DIM, it must be changed to de DEFAULT_DIM        */
-        if ((dimension < MIN_DIM) || (dimension > MAX_DIM)) {
-            dimension = DEFAULT_DIM;
+        if (dimension == 0) {
+            throw new NullPointerException("ERROR, DIMENSION NOT VALID");
+        } else {
+            if ((dimension < MIN_DIM) || (dimension > MAX_DIM)) {
+                dimension = DEFAULT_DIM;
+            }
         }
 
         return dimension;
@@ -88,36 +95,38 @@ public class FoxHoundUtils {
      * @return = an array of letters which are contained in the players array
      */
     public static String[] letter_recognition (String[] players) {
-
         String[] letters_recognised = new String[players.length];
+        if (players == null) {
+            throw new NullPointerException("ERROR, PLAYERS CANT BE NULL");
+        } else {
+            /** k is a variable used to save the letters in letters_recognised*/
+            int k = 0;
 
-        /** k is a variable used to save the letters in letters_recognised*/
-        int k = 0;
+            /** First loop split each of the elements of the array
+             *  Second loop transform the element to char and compare to
+             *      ASCII value of letters to detect the letters.
+             *          if letter = true -> transform to String and save
+             *          in letters_recognised                              */
 
-        /** First loop split each of the elements of the array
-         *  Second loop transform the element to char and compare to
-         *      ASCII value of letters to detect the letters.
-         *          if letter = true -> transform to String and save
-         *          in letters_recognised                              */
+            for (String str: players) {
 
-        for (String str: players) {
+                String [] split = str.split("");
 
-            String [] split = str.split("");
+                for (String elements: split) {
 
-            for (String elements: split) {
+                    /** Transform each element to char*/
+                    char element_char = elements.charAt(0);
 
-                /** Transform each element to char*/
-                char element_char = elements.charAt(0);
+                    /** Compares to ASCII letters values*/
+                    if ((element_char >= (char)65) && (element_char < 91)) {
+                        //System.out.println(element_char + " DETECTED");
+                        letters_recognised[k] = ""+ element_char;
+                        k++;
 
-                /** Compares to ASCII letters values*/
-                if ((element_char >= (char)65) && (element_char < 91)) {
-                    //System.out.println(element_char + " DETECTED");
-                    letters_recognised[k] = ""+ element_char;
-                    k++;
+                    } else {
+                        //System.out.println(element_char + " IS NOT A LETTER");
 
-                } else {
-                    //System.out.println(element_char + " IS NOT A LETTER");
-
+                    }
                 }
             }
         }
@@ -143,64 +152,68 @@ public class FoxHoundUtils {
          */
 
         String[] numbers_recognised = new String[players.length];
+        if (players == null) {
+            throw new NullPointerException("ERROR, PLAYERS CANT BE NULL");
+        } else {
+            /** k is a variable used to save the numbers in numbers_recognised*/
+            int k = 0;
+            boolean numbers_together = false;
 
-        /** k is a variable used to save the numbers in numbers_recognised*/
-        int k = 0;
-        boolean numbers_together = false;
+            /** First loop split each of the elements of the array
+             *  Second loop transform the element to char and compare to
+             *      ASCII value of numbers to detect the numbers.
+             *          if number = true -> transform to String and save
+             *          in numbers_recognised                              */
 
-        /** First loop split each of the elements of the array
-         *  Second loop transform the element to char and compare to
-         *      ASCII value of numbers to detect the numbers.
-         *          if number = true -> transform to String and save
-         *          in numbers_recognised                              */
+            for (String str: players) {
 
-        for (String str: players) {
+                String [] split = str.split("");
 
-            String [] split = str.split("");
+                for (String elements: split) {
 
-            for (String elements: split) {
+                    /** Transform each element to char*/
+                    char element_char = elements.charAt(0);
 
-                /** Transform each element to char*/
-                char element_char = elements.charAt(0);
+                    /** Compares to ASCII */
+                    if ((element_char >= (char)48) && (element_char < (char)58)) {
 
-                /** Compares to ASCII */
-                if ((element_char >= (char)48) && (element_char < (char)58)) {
+                        /** AÑADIR CASO EN EL QUE TIENES DOS DIGITOS SEGUIDOS (NO SOLO EL CASO DE FOX
+                         * HOUNDS SE MUEVEN Y SI LA DIMENSION ES MAYOR DE 10 TIENE 2 DIGITOS TODOS SEGUIDOS!!!
+                         */
 
-                    /** AÑADIR CASO EN EL QUE TIENES DOS DIGITOS SEGUIDOS (NO SOLO EL CASO DE FOX
-                     * HOUNDS SE MUEVEN Y SI LA DIMENSION ES MAYOR DE 10 TIENE 2 DIGITOS TODOS SEGUIDOS!!!
-                     */
+                        /** Must check if there is a number of 2 digits*/
+                        if (numbers_together == false) {
 
-                    /** Must check if there is a number of 2 digits*/
-                    if (numbers_together == false) {
+                            // System.out.println(element_char + " DETECTED");
+                            numbers_recognised[k] = ""+ element_char;
+                            k++;
+                            numbers_together = true;
 
-                        // System.out.println(element_char + " DETECTED");
-                        numbers_recognised[k] = ""+ element_char;
-                        k++;
-                        numbers_together = true;
+                        } else {
+                            /** k gets the value of the previous digit to join them together */
+                            k--;
+
+                            // System.out.println(element_char + " DETECTED - IS A SECOND DIGIT");
+                            String two_digit_number = numbers_recognised[k] + element_char;
+                            numbers_recognised[k] = two_digit_number;
+                            //System.out.println(numbers_recognised[k] + " IS A 2 DIGITS NUMBER");
+
+                            /** if there are more 2 digit numbers k must continue summing and numbers_together resets*/
+                            k++;
+                            numbers_together = false;
+
+                        }
+
 
                     } else {
-                        /** k gets the value of the previous digit to join them together */
-                        k--;
-
-                        // System.out.println(element_char + " DETECTED - IS A SECOND DIGIT");
-                        String two_digit_number = numbers_recognised[k] + element_char;
-                        numbers_recognised[k] = two_digit_number;
-                        //System.out.println(numbers_recognised[k] + " IS A 2 DIGITS NUMBER");
-
-                        /** if there are more 2 digit numbers k must continue summing and numbers_together resets*/
-                        k++;
+                        //System.out.println(element_char + " IS NOT A LETTER");
                         numbers_together = false;
 
                     }
-
-
-                } else {
-                    //System.out.println(element_char + " IS NOT A LETTER");
-                    numbers_together = false;
-
                 }
             }
         }
+
 
         //System.out.println(Arrays.toString(numbers_recognised));
 
@@ -247,8 +260,10 @@ public class FoxHoundUtils {
         /** Number of pieces on the board, giving the option of possible
          * change of the number of Foxes playing */
 
-        if (dimension <= 0) {
+        if (dimension < 0) {
             throw new IllegalArgumentException("ERROR: DIMENSIONS MUST BE POSITIVE");
+        } else if ( dimension == 0) {
+            throw new NullPointerException("ERROR: DIMENSIONS CAN`T BE NULL");
         }
 
         int number_Hound = (dimension / 2);
@@ -313,35 +328,42 @@ public class FoxHoundUtils {
     public static int[] line_diagram (String[] letter_recognition, String[] number_recognition, int dimension, int row) {
 
         /** First create the full array */
-        int[] the_line = new int[dimension];
+        int[] the_line = null;
 
-        for (int i = 0; i < dimension; i++) {
-            the_line[i] = 0;
-        }
+        if (letter_recognition == null ||number_recognition == null || dimension == 0) {
+            throw new NullPointerException("ERROR, PARAMETERS CAN'T BE NULL");
+        } else {
+            the_line = new int[dimension];
 
-        //System.out.println(Arrays.toString(the_line));
-        int position;
-        int piece = 0;
-
-        for (int i = 0; i < number_recognition.length; i++) {
-            piece++;
-            if (Integer.parseInt(number_recognition[i]) == row ) {
-
-                char letter_char = letter_recognition[i].charAt(0);
-                position = letter_char - 65;
-
-                if (piece < letter_recognition.length) {
-                    the_line[position] = 1;
-                    //System.out.println(Arrays.toString(the_line));
-                } else {
-                    the_line[position] = 2;
-                    //System.out.println(Arrays.toString(the_line));
-                }
-
-
+            for (int i = 0; i < dimension; i++) {
+                the_line[i] = 0;
             }
 
+            //System.out.println(Arrays.toString(the_line));
+            int position;
+            int piece = 0;
+
+            for (int i = 0; i < number_recognition.length; i++) {
+                piece++;
+                if (Integer.parseInt(number_recognition[i]) == row ) {
+
+                    char letter_char = letter_recognition[i].charAt(0);
+                    position = letter_char - 65;
+
+                    if (piece < letter_recognition.length) {
+                        the_line[position] = 1;
+                        //System.out.println(Arrays.toString(the_line));
+                    } else {
+                        the_line[position] = 2;
+                        //System.out.println(Arrays.toString(the_line));
+                    }
+
+
+                }
+
+            }
         }
+
 
         return the_line;
     }
@@ -355,15 +377,26 @@ public class FoxHoundUtils {
      * @return = a grid of lines in math values using 0s, 1s and 2s
      */
     public static int[][] griding (String[] letter_recognition, String[] number_recognition, int dimension, int row) {
+        int[][] grid = null;
 
-        /** Creates a 2 dimension array to store all the values of the grid*/
-        int[][] grid = new int[dimension][];
+        if (letter_recognition == null ||number_recognition == null ||dimension == 0) {
+            throw new NullPointerException("ERROR, PARAMETERS CAN'T BE NULL");
+        } else {
 
-        for (int i = 0; i < dimension; i++) {
+            try {
+                /** Creates a 2 dimension array to store all the values of the grid*/
+                grid = new int[dimension][];
 
-            //System.out.println(Arrays.toString(line_diagram(letter_recognition, number_recognition, dimension, i + 1)));
-            grid[i] = line_diagram(letter_recognition, number_recognition, dimension, i + 1);
+                for (int i = 0; i < dimension; i++) {
 
+                    //System.out.println(Arrays.toString(line_diagram(letter_recognition, number_recognition, dimension, i + 1)));
+                    grid[i] = line_diagram(letter_recognition, number_recognition, dimension, i + 1);
+
+                }
+
+            } catch (NullPointerException error) {
+                System.err.println(error.getMessage());
+            }
         }
 
         return grid;
@@ -378,47 +411,52 @@ public class FoxHoundUtils {
      */
     public static void board (int[][] grid, String alphabet, String[] numbers, int dimension) {
 
-        String letters = alphabet_margin(dimension) + alphabet;
-        System.out.println("\n"+ letters + "  \n");
-        String one_line = "";
+        try {
+            String letters = alphabet_margin(dimension) + alphabet;
+            System.out.println("\n"+ letters + "  \n");
+            String one_line = "";
 
 
-        /** For every line on the grid */
+            /** For every line on the grid */
 
-        int row = 0;
+            int row = 0;
 
-        for (int[] line: grid) {
+            for (int[] line: grid) {
 
-            /** Reset the value of the line every time it restarts */
-            one_line = "" + numbers[row] + NUMBERS_MARGIN;
+                /** Reset the value of the line every time it restarts */
+                one_line = "" + numbers[row] + NUMBERS_MARGIN;
 
-            /** For every element of the grid substitute it's value to the corresponding piece on the grid */
-            for (int values: line) {
+                /** For every element of the grid substitute it's value to the corresponding piece on the grid */
+                for (int values: line) {
 
-                if (values == 0) {
+                    if (values == 0) {
 
-                    one_line = one_line + DOT_FIELD;
+                        one_line = one_line + DOT_FIELD;
 
-                } else if (values == 1) {
+                    } else if (values == 1) {
 
-                    one_line = one_line + HOUND_FIELD;
+                        one_line = one_line + HOUND_FIELD;
 
-                } else {
+                    } else {
 
-                    one_line = one_line + FOX_FIELD;
+                        one_line = one_line + FOX_FIELD;
+
+                    }
 
                 }
 
+                one_line = one_line + NUMBERS_MARGIN + numbers[row];
+                row++;
+                System.out.println(one_line);
+
+
             }
 
-            one_line = one_line + NUMBERS_MARGIN + numbers[row];
-            row++;
-            System.out.println(one_line);
+            System.out.println("\n" + letters + "\n");
 
-
+        } catch (NullPointerException error ) {
+            System.err.println("ERROR, PARAMETERS CAN'T BE NULL");
         }
-
-        System.out.println("\n" + letters + "\n");
 
     }
 
@@ -441,21 +479,77 @@ public class FoxHoundUtils {
 
         /** _________________ CHECKING ORIGIN ___________________ */
         /** Check if the coordinates of the origin entered are valid */
-        isValid = coordinate_checker(dimension, origin) && isValid;
+        try {
+            isValid = coordinate_checker(dimension, origin) && isValid;
+        } catch (IllegalArgumentException error) {
+            isValid = false;
+            System.err.println(error.getMessage());
+        } catch (NullPointerException error) {
+            isValid = false;
+            System.err.println(error.getMessage());
+        }
         /** Check if the coordinates of the origin are inside the players array*/
-        isValid = in_players(origin,players) && isValid;
+        try {
+            isValid = in_players(origin,players) && isValid;
+        } catch (NullPointerException error) {
+            System.err.println(error.getMessage());
+            isValid = false;
+        }
         /** Check if the coordinates of the destination entered are valid */
-        isValid = coordinate_checker(dimension, destination) && isValid;
+        try {
+            isValid = coordinate_checker(dimension, destination) && isValid;
+        } catch (IllegalArgumentException error) {
+            isValid = false;
+            System.err.println(error.getMessage());
+        } catch (NullPointerException error) {
+            isValid = false;
+            System.err.println(error.getMessage());
+        }
         /** Check if the the destination is inside players array */
-        isValid = !(in_players(destination,players)) && isValid;
+        try {
+            isValid = !(in_players(destination,players)) && isValid;
+        } catch (NullPointerException error) {
+            System.err.println(error.getMessage());
+            isValid = false;
+        }
         /** Check if the origin is not equal to the destination */
-        isValid = !(origin.equals(destination)) && isValid;
+        try{
+            if (origin == null) {
+                throw new NullPointerException("ERROR, ORIGIN CAN NOT BE NULL");
+            } else {
+                isValid = !(origin.equals(destination)) && isValid;
+            }
+        } catch (NullPointerException error) {
+            isValid = false;
+            System.err.println(error.getMessage());
+        }
         /** Check the char of the piece that it is moving */
-        isValid = char_checker(figure, origin, players) && isValid;
+        try {
+            isValid = char_checker(figure, origin, players) && isValid;
+        } catch (IllegalArgumentException error) {
+            System.err.println(error.getMessage());
+            isValid = false;
+        } catch (NullPointerException error) {
+            System.err.println(error.getMessage());
+            isValid = false;
+        }
         /** Check if the destination letter is in the diagonal of the origin*/
-        isValid = in_diagonal(origin, destination) && isValid;
+        try{
+            isValid = in_diagonal(origin, destination) && isValid;
+        } catch (NullPointerException error) {
+            System.err.println(error.getMessage());
+            isValid = false;
+        }
         /** Check if the movement is only forward of hound */
-        isValid = hound_movement_allowed(figure, origin, destination) && isValid;
+        try {
+            isValid = hound_movement_allowed(figure, origin, destination) && isValid;
+        } catch (NullPointerException error) {
+            System.err.println(error.getMessage());
+            isValid = false;
+        } catch (IllegalArgumentException error){
+            System.err.println(error.getMessage());
+            isValid = false;
+        }
 
         return isValid;
     }
@@ -471,46 +565,60 @@ public class FoxHoundUtils {
         char letter = ' ';
         int number = 0;
 
-        /** Check if the letter of the coordinate is valid */
-        try {
-            letter = FoxHoundUtils.letter_coordinate(coordinate);
-            validity = validity && true;
-
-        } catch (IllegalArgumentException error){
-            validity = false;
-            System.err.println(error.getMessage());
-        }
-        /** Check that the letter is inside the possible dimensions */
-        if ( 65 <= (int)letter && (int)letter <= (90 - (26 - dimension)) ){
-            validity = validity && true;
+        if (coordinate == null) {
+            throw new NullPointerException("ERROR, COORDINATE CAN'T BE NULL");
+        } else if (dimension == 0){
+            throw new IllegalArgumentException("ERROR, DIMENSION NOT VALID");
         } else {
-            validity = false;
-            System.err.println("ERROR, LETTER " + letter + " IS NOT IN THE RANGE OF THE DIMENSION");
-        }
-        /** Checking if the number of the coordinate is valid  */
-        try {
-            number = FoxHoundUtils.number_coordinate(coordinate);
-            validity = validity && true;
+            /** Check if the letter of the coordinate is valid */
+            try {
+                letter = FoxHoundUtils.letter_coordinate(coordinate);
+                validity = validity && true;
 
-        } catch (IllegalArgumentException error){
-            validity = false;
-            System.err.println(error.getMessage());
-        }
-        /** Check that the numbers of the coordinate are inside the possible dimensions */
-        if ( 1 <= number && number <= dimension) {
-            validity = validity && true;
-        } else {
-            validity = false;
-            if (number == 0) {
-                System.err.println("ERROR, NO NUMBER FOUND");
+            } catch (IllegalArgumentException error){
+                validity = false;
+                System.err.println(error.getMessage());
+            } catch (NullPointerException error) {
+                validity = false;
+                System.err.println(error.getMessage());
+            }
+            /** Check that the letter is inside the possible dimensions */
+            if ( 65 <= (int)letter && (int)letter <= (90 - (26 - dimension)) ){
+                validity = validity && true;
             } else {
-                System.err.println("ERROR, NUMBER " + number + " IS NOT IN THE RANGE OF THE DIMENSION");
+                validity = false;
+                System.err.println("ERROR, LETTER " + letter + " IS NOT IN THE RANGE OF THE DIMENSION");
+            }
+            /** Checking if the number of the coordinate is valid  */
+            try {
+                number = FoxHoundUtils.number_coordinate(coordinate);
+                validity = validity && true;
+
+            } catch (IllegalArgumentException error){
+                validity = false;
+                System.err.println(error.getMessage());
+            } catch (NullPointerException error) {
+                validity = false;
+                System.err.println(error.getMessage());
+            }
+
+            /** Check that the numbers of the coordinate are inside the possible dimensions */
+            if ( 1 <= number && number <= dimension) {
+                validity = validity && true;
+            } else {
+                validity = false;
+                if (number == 0) {
+                    System.err.println("ERROR, NO NUMBER FOUND");
+                } else {
+                    System.err.println("ERROR, NUMBER " + number + " IS NOT IN THE RANGE OF THE DIMENSION");
+                }
+            }
+
+            if (validity == false) {
+                System.err.println("ERROR, " + coordinate + " IS NOT A VALID COORDINATE");
             }
         }
 
-        if (validity == false) {
-            System.err.println("ERROR, " + coordinate + " IS NOT A VALID COORDINATE");
-        }
         return validity;
     }
     /** FUNCTION WHICH CHECKS IF ORIGIN IS IN PLAYERS */
@@ -522,9 +630,15 @@ public class FoxHoundUtils {
      */
     public static boolean in_players (String origin, String[] players) {
         boolean origin_players = false;
-        for (int i = 0; i < players.length; i++) {
-            origin_players = origin_players || (origin.equals(players[i]));
+
+        if (players == null) {
+            throw new NullPointerException("ERROR, PLAYERS CAN NOT BE NULL");
+        } else {
+            for (int i = 0; i < players.length; i++) {
+                origin_players = origin_players || (origin.equals(players[i]));
+            }
         }
+
         return origin_players;
     }
     /** FUNCTION WHICH CHECKS IF THE FIGURE OF THE PIECE MOVING IS VALID */
@@ -539,23 +653,29 @@ public class FoxHoundUtils {
         boolean valid = false;
         int k = 0;
 
-        for (int i = 0; i < players.length; i++) {
-            k = i;
-            if (origin.equals(players[i])) {
-                break;
-            }
-        }
-        if (k < players.length - 1) {
-            if (figure == 'H') {
-                valid = true;
-            } else {
-                System.err.println("THE FIGURE " + figure + " IS NOT VALID");
-            }
+        if (origin == null || players == null) {
+            throw new NullPointerException("ERROR, char_checker can't have null parameters");
+        } else if (figure == ' ') {
+            throw new IllegalArgumentException("ERROR, that figure is nos valid for this function");
         } else {
-            if (figure == 'F') {
-                valid = true;
+            for (int i = 0; i < players.length; i++) {
+                k = i;
+                if (origin.equals(players[i])) {
+                    break;
+                }
+            }
+            if (k < players.length - 1) {
+                if (figure == 'H') {
+                    valid = true;
+                } else {
+                    System.err.println("THE FIGURE " + figure + " IS NOT VALID");
+                }
             } else {
-                System.err.println("THE FIGURE " + figure + " IS NOT VALID");
+                if (figure == 'F') {
+                    valid = true;
+                } else {
+                    System.err.println("THE FIGURE " + figure + " IS NOT VALID");
+                }
             }
         }
 
@@ -575,18 +695,22 @@ public class FoxHoundUtils {
         char letter_destination = letter_coordinate(destination);
         int number_destination = number_coordinate(destination);
 
-        if (((int)letter_destination == (int)letter_origin  + 1 ) || ( (int)letter_destination == (int)letter_origin  - 1 )) {
-            valid = valid && true;
+        if (origin == null || destination == null) {
+            throw new NullPointerException("ERROR, THE PARAMETERS OF THIS FUNCTION CAN'T BE NULL");
         } else {
-            valid = false;
-            System.err.println("ERROR, LETTERS ARE NOT IN DIAGONAL");
-        }
+            if (((int)letter_destination == (int)letter_origin  + 1 ) || ( (int)letter_destination == (int)letter_origin  - 1 )) {
+                valid = valid && true;
+            } else {
+                valid = false;
+                System.err.println("ERROR, LETTERS ARE NOT IN DIAGONAL");
+            }
 
-        if ((number_destination == number_origin + 1) || (number_destination == number_origin - 1)) {
-            valid = valid && true;
-        } else {
-            valid = false;
-            System.err.println("ERROR, NUMBERS ARE NOT IN DIAGONAL");
+            if ((number_destination == number_origin + 1) || (number_destination == number_origin - 1)) {
+                valid = valid && true;
+            } else {
+                valid = false;
+                System.err.println("ERROR, NUMBERS ARE NOT IN DIAGONAL");
+            }
         }
 
         return valid;
@@ -599,15 +723,20 @@ public class FoxHoundUtils {
      */
     public static char letter_coordinate (String coordinate) {
         char letter = ' ';
-        if (coordinate.length() == 2 || coordinate.length() == 3) {
-            letter = coordinate.charAt(0);
-            if ((int) letter > 90 || 65 > (int) letter) {
-                letter = coordinate.charAt(0);
-                System.err.println("ERROR " + letter + " IS NOT A VALID LETTER");
-            }
+        if (coordinate == null) {
+            throw new NullPointerException("ERROR, THE COORDINATE CAN'T BE NULL");
         } else {
-            System.err.println("ERROR " + coordinate + " IS NOT A VALID COORDINATE");
+            if (coordinate.length() == 2 || coordinate.length() == 3) {
+                letter = coordinate.charAt(0);
+                if ((int) letter > 90 || 65 > (int) letter) {
+                    letter = coordinate.charAt(0);
+                    System.err.println("ERROR " + letter + " IS NOT A VALID LETTER");
+                }
+            } else {
+                System.err.println("ERROR " + coordinate + " IS NOT A VALID COORDINATE");
+            }
         }
+
         return letter;
     }
     /** FUNCTION TO GET THE NUMBERS OF COORDINATES - CAN EXTRACT NUMBERS FROM ORIGIN AND FROM PLAYERS (CHECK IF PLAYERS OF DESTINATION)*/
@@ -622,34 +751,39 @@ public class FoxHoundUtils {
         String number = "";
         int final_number = 0;
 
-        // GETTING NUMBER IN CASE DIMENSION IS ONE DIGIT DIMENSION
-        if (coordinate.length() == 2) {
-
-            number1 = coordinate.charAt(1);
-            // CHECK IF THE NUMBER RECEIVED IS REALLY A NUMBER
-            if (48 <= (int) number1 && (int) number1 <= 57) {
-                final_number = Integer.parseInt(String.valueOf(number1));
-            } else {
-                throw new IllegalArgumentException("ERROR " + number1 + " IS NOT A NUMBER ");
-            }
-
-        } else if (coordinate.length() == 3) /* GETTING NUMBERS IN CASE DIMENSION IS A TWO DIGIT DIMENSION*/ {
-            number1 = coordinate.charAt(1);
-            number2 = coordinate.charAt(2);
-
-            // CHECK IF THE NUMBERS RECEIVED ARE REALLY NUMBERS
-            if ((48 <= (int) number1 && (int) number1 <= 57) && (48 <= (int) number2 && (int) number2 <= 57)) {
-                number = number + number1 + number2;
-                final_number = Integer.parseInt(number);
-            } else {
-                throw new IllegalArgumentException("ERROR " + number1 + " OR " + number2 + " ARE NOT NUMBERS");
-            }
-
+        if (coordinate == null) {
+            throw new NullPointerException("ERROR, COORDINATES CAN'T BE NULL (NUMBER COORDINATE)");
         } else {
+            // GETTING NUMBER IN CASE DIMENSION IS ONE DIGIT DIMENSION
+            if (coordinate.length() == 2) {
 
-            throw  new IllegalArgumentException("ERROR " + coordinate + " IS NOT A VALID COORDINATE");
+                number1 = coordinate.charAt(1);
+                // CHECK IF THE NUMBER RECEIVED IS REALLY A NUMBER
+                if (48 <= (int) number1 && (int) number1 <= 57) {
+                    final_number = Integer.parseInt(String.valueOf(number1));
+                } else {
+                    throw new IllegalArgumentException("ERROR " + number1 + " IS NOT A NUMBER ");
+                }
 
+            } else if (coordinate.length() == 3) /* GETTING NUMBERS IN CASE DIMENSION IS A TWO DIGIT DIMENSION*/ {
+                number1 = coordinate.charAt(1);
+                number2 = coordinate.charAt(2);
+
+                // CHECK IF THE NUMBERS RECEIVED ARE REALLY NUMBERS
+                if ((48 <= (int) number1 && (int) number1 <= 57) && (48 <= (int) number2 && (int) number2 <= 57)) {
+                    number = number + number1 + number2;
+                    final_number = Integer.parseInt(number);
+                } else {
+                    throw new IllegalArgumentException("ERROR " + number1 + " OR " + number2 + " ARE NOT NUMBERS");
+                }
+
+            } else {
+
+                throw  new IllegalArgumentException("ERROR " + coordinate + " IS NOT A VALID COORDINATE");
+
+            }
         }
+
 
         return final_number;
     }
@@ -663,16 +797,22 @@ public class FoxHoundUtils {
      */
     public static boolean hound_movement_allowed(char figure, String origin, String destination) {
         boolean valid = true;
-        if (figure == 'H' && (number_coordinate(destination) == number_coordinate(origin) + 1)){
-            valid = true;
-        } else if (figure == 'F') {
-            valid = true;
-        } else if (figure == 'H' && (number_coordinate(destination) < number_coordinate(origin) + 1)){
-            valid = false;
-            System.err.println("ERROR, HOUNDS CAN ONLY MOVE FORWARD");
+        if (origin == null || destination == null) {
+            throw new NullPointerException("ERROR, THE PARAMETERS OF THIS FUNCTION CAN'T BE NULL");
+        } else if (figure == ' ') {
+            throw new IllegalArgumentException("ERROR, THE FIGURE IS NOT VALID");
         } else {
-            valid = false;
-            System.err.println("ERROR, PICK A HOUND TO MOVE");
+            if (figure == 'H' && (number_coordinate(destination) == number_coordinate(origin) + 1)){
+                valid = true;
+            } else if (figure == 'F') {
+                valid = true;
+            } else if (figure == 'H' && (number_coordinate(destination) < number_coordinate(origin) + 1)){
+                valid = false;
+                System.err.println("ERROR, HOUNDS CAN ONLY MOVE FORWARD");
+            } else {
+                valid = false;
+                System.err.println("ERROR, PICK A HOUND TO MOVE");
+            }
         }
 
         return valid;
@@ -690,33 +830,37 @@ public class FoxHoundUtils {
      * @return = a boolean indicating if its necessary ask again for coordinates
      */
     public static boolean input_coordinates_valid (int dimension, String[] coordinates) {
-
-        boolean valid = true;
-        if (coordinates.length != 2) {
-            valid = false;
-        }
-
-        // CHECK LETTERS
-        for (int i = 0; i < coordinates.length; i++) {
-
-            if (!((int)coordinates[i].charAt(0) <= 90 -(26 - dimension) && (int)coordinates[i].charAt(0) >= 65 )) {
+        boolean valid = false;
+        if (dimension == 0 || coordinates == null) {
+            throw new NullPointerException("ERROR, PARAMETERS CAN'T BE NULL");
+        } else {
+            valid = true;
+            if (coordinates.length != 2) {
                 valid = false;
-                System.err.println("ERROR: Please enter valid coordinate pair separated by space.");
-                break;
-            } else {
-                valid = true;
-            }
-        // CHECK NUMBERS
-            if (number_coordinate(coordinates[i]) > dimension) {
-                valid = false;
-                System.err.println("ERROR: Please enter valid coordinate pair separated by space.");
-                break;
-            } else {
-                valid = true;
             }
 
+            // CHECK LETTERS
+            for (int i = 0; i < coordinates.length; i++) {
 
+                if (!((int)coordinates[i].charAt(0) <= 90 -(26 - dimension) && (int)coordinates[i].charAt(0) >= 65 )) {
+                    valid = false;
+                    System.err.println("ERROR: Please enter valid coordinate pair separated by space.");
+                    break;
+                } else {
+                    valid = true;
+                }
+                // CHECK NUMBERS
+                if (number_coordinate(coordinates[i]) > dimension) {
+                    valid = false;
+                    System.err.println("ERROR: Please enter valid coordinate pair separated by space.");
+                    break;
+                } else {
+                    valid = true;
+                }
+            }
         }
+
+
 
         return valid;
     }
@@ -729,15 +873,20 @@ public class FoxHoundUtils {
      */
     public static String[] new_players_position (String[] players, String[] positionQuery) {
 
-        int k = 0;
-        for (int i = 0; i < players.length; i++) {
-            k = i;
-            if (positionQuery[0].equals(players[i])){
-                break;
+        if (players == null ||positionQuery == null) {
+            throw new NullPointerException("ERROR, PARAMETERS CAN'T BE NULL");
+        } else {
+            int k = 0;
+            for (int i = 0; i < players.length; i++) {
+                k = i;
+                if (positionQuery[0].equals(players[i])){
+                    break;
+                }
             }
-        }
 
-        players[k] = positionQuery[1];
+            players[k] = positionQuery[1];
+
+        }
 
         return players;
     }
@@ -752,39 +901,44 @@ public class FoxHoundUtils {
      */
     public static String[] make_the_step (String[] players, int dimension, Scanner input, char figure) {
 
-        String positionQuery_string = Arrays.toString(FoxHoundUI.positionQuery(dimension,input));
-        //System.out.println(positionQuery_string);
-        positionQuery_string = positionQuery_string.substring(1);
-        positionQuery_string = positionQuery_string.replaceAll("]", "").trim();
-        positionQuery_string = positionQuery_string.replaceAll(",", "").trim();
-        //System.out.println(positionQuery_string);
-        String[] positionQuery_array = positionQuery_string.split(" ");
-
-        if (isValidMove(dimension,players,figure,positionQuery_array[0],positionQuery_array[1]) == true) {
-            FoxHoundUtils.new_players_position(players,positionQuery_array);
+        if (players == null || dimension == 0 || figure == ' ' || input == null){
+            throw new NullPointerException("ERROR, PARAMETERS CAN'T BE NLL");
         } else {
-            make_the_step(players,dimension,input,figure);
-        }
-        /** CHECK IF THE FOX WINS ON THIS MOVEMENT */
-        if (figure == 'F') {
-            isFoxWin(positionQuery_array[1]);
-        }
-        if (figure == 'H') {
-            isHoundWin(players, dimension);
-        }
-        /*System.out.println("Do you want to save the game now?: (y/n)");
-        String answer = input.nextLine();
-        while (!(answer.equals("y") || answer.equals("n") ||answer.equals("Y") || answer.equals("N"))){
-            System.out.println("Do you want to save the game now?: (y/n)");
-            answer = input.nextLine();
-        }
-        if (answer.equals("y") || answer.equals("Y") ) {
             try {
-                FoxHoundIO.prepareSave(players,figure,input);
-            } catch (NullPointerException | IOException error) {
+                String positionQuery_string = Arrays.toString(FoxHoundUI.positionQuery(dimension,input));
+                //System.out.println(positionQuery_string);
+                positionQuery_string = positionQuery_string.substring(1);
+                positionQuery_string = positionQuery_string.replaceAll("]", "").trim();
+                positionQuery_string = positionQuery_string.replaceAll(",", "").trim();
+                //System.out.println(positionQuery_string);
+                String[] positionQuery_array = positionQuery_string.split(" ");
+
+                if (isValidMove(dimension,players,figure,positionQuery_array[0],positionQuery_array[1]) == true) {
+                    FoxHoundUtils.new_players_position(players,positionQuery_array);
+                } else {
+                    make_the_step(players,dimension,input,figure);
+                }
+                /** CHECK IF THE FOX WINS ON THIS MOVEMENT */
+                if (figure == 'F') {
+                    try{
+                        isFoxWin(positionQuery_array[1]);
+                    } catch (NullPointerException error) {
+                        System.err.println(error.getMessage());
+                    }
+                }
+                if (figure == 'H') {
+                    try {
+                        isHoundWin(players, dimension);
+                    } catch (NullPointerException error){
+                        System.err.println(error.getMessage());
+                    }
+
+                }
+            } catch (NullPointerException error ){
                 System.err.println(error.getMessage());
             }
-        }*/
+
+        }
 
         return players;
     }
@@ -802,13 +956,18 @@ public class FoxHoundUtils {
     public static boolean isFoxWin (String fox_position) {
         boolean fox_win = false;
 
-        if (number_coordinate(fox_position) == 1) {
-            fox_win =true;
-            System.out.println("The Fox wins!");
-
+        if (fox_position == null) {
+            throw new NullPointerException("ERROR, THE PARAMETER CAN'T BE NULL");
         } else {
-            System.out.println("The Fox did not win yet");
+            if (number_coordinate(fox_position) == 1) {
+                fox_win =true;
+                System.out.println("The Fox wins!");
+
+            } else {
+                System.out.println("The Fox did not win yet");
+            }
         }
+
 
         return fox_win;
     }
@@ -820,39 +979,46 @@ public class FoxHoundUtils {
      * @return
      */
     public static boolean isHoundWin(String[] players, int dimension) {
-
+        boolean fox_win = true;
         if (dimension < 4) {
             throw new IllegalArgumentException("ERROR: THE DIMENSION IS NOT VALID");
         }
 
-        if (players == null) {
+        if (players == null || dimension == 0) {
             throw new NullPointerException("ERROR: THE PLAYERS CAN NOT BE NULL");
-        }
-        boolean hounds_win = false;
-        boolean fox_win = false;
-        String fox_coordinates = players[players.length-1];
-        char fox_letter = letter_coordinate(fox_coordinates);
-        int fox_number = number_coordinate(fox_coordinates);
-
-        String[] destination = new String[4];
-
-        // two coordinates with letter  +1 and two coordinates with letter -1
-        // numbers two numbers +1 and two numbers -1
-        destination[0] = "" + (char)((int)fox_letter + 1) + (fox_number + 1); // right top corner
-        destination[1] = "" + (char)((int)fox_letter + 1) + (fox_number - 1); // right bottom corner
-        destination[2] = "" + (char)((int)fox_letter - 1) + (fox_number + 1); // left top corner
-        destination[3] = "" + (char)((int)fox_letter - 1) + (fox_number - 1); // left bottom corner
-
-        // Check if the fox can do a valid move in its position
-        for (int i = 0; i < destination.length; i++) {
-            fox_win = (isValidMove(dimension,players,'F',fox_coordinates,destination[i])) || fox_win;
-        }
-        if (!fox_win) {
-            System.out.println("The Hounds win!");
         } else {
-            System.out.println("The Hounds do not win yet");
-        }
 
+            fox_win = false;
+            String fox_coordinates = players[players.length-1];
+            char fox_letter = letter_coordinate(fox_coordinates);
+            int fox_number = number_coordinate(fox_coordinates);
+            String[] destination = new String[4];
+
+            // two coordinates with letter  +1 and two coordinates with letter -1
+            // numbers two numbers +1 and two numbers -1
+            destination[0] = "" + (char)((int)fox_letter + 1) + (fox_number + 1); // right top corner
+            destination[1] = "" + (char)((int)fox_letter + 1) + (fox_number - 1); // right bottom corner
+            destination[2] = "" + (char)((int)fox_letter - 1) + (fox_number + 1); // left top corner
+            destination[3] = "" + (char)((int)fox_letter - 1) + (fox_number - 1); // left bottom corner
+
+            // Check if the fox can do a valid move in its position
+            for (int i = 0; i < destination.length; i++) {
+                try {
+                    fox_win = (isValidMove(dimension,players,'F',fox_coordinates,destination[i])) || fox_win;
+                } catch (NullPointerException error) {
+                    System.err.println(error.getMessage());
+                    fox_win = false;
+                }
+
+            }
+            if (!fox_win) {
+                System.out.println("The Hounds win!");
+            } else {
+                System.out.println("The Hounds do not win yet");
+            }
+
+
+        }
 
         return !fox_win;
     }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="FoxHoundUtilsBasicTest_05_update" tests="13" skipped="0" failures="0" errors="0" timestamp="2020-02-16T23:05:47" hostname="MSI" time="0.01">
+  <properties/>
+  <testcase name="testIsHoundWinDInvalid" classname="FoxHoundUtilsBasicTest_05_update" time="0.002"/>
+  <testcase name="testIsValidMoveDestOccupied" classname="FoxHoundUtilsBasicTest_05_update" time="0.0"/>
+  <testcase name="testIsValidMovePositive" classname="FoxHoundUtilsBasicTest_05_update" time="0.0"/>
+  <testcase name="testIsFoxWinNull" classname="FoxHoundUtilsBasicTest_05_update" time="0.0"/>
+  <testcase name="testIsValidMoveInvalidFigureAtOrigin" classname="FoxHoundUtilsBasicTest_05_update" time="0.003"/>
+  <testcase name="testInitialisePositionsNegativeDim" classname="FoxHoundUtilsBasicTest_05_update" time="0.0"/>
+  <testcase name="testIsFoxWinPositive" classname="FoxHoundUtilsBasicTest_05_update" time="0.0"/>
+  <testcase name="testInitialisePositionsDefaultDim" classname="FoxHoundUtilsBasicTest_05_update" time="0.001"/>
+  <testcase name="testIsFoxWinNegative" classname="FoxHoundUtilsBasicTest_05_update" time="0.0"/>
+  <testcase name="testIsValidMoveEmptyOrigin" classname="FoxHoundUtilsBasicTest_05_update" time="0.0"/>
+  <testcase name="testIsHoundWinPositive" classname="FoxHoundUtilsBasicTest_05_update" time="0.001"/>
+  <testcase name="testIsHoundWinNegative" classname="FoxHoundUtilsBasicTest_05_update" time="0.001"/>
+  <testcase name="testIsHoundWinPNull" classname="FoxHoundUtilsBasicTest_05_update" time="0.0"/>
+  <system-out><![CDATA[The Fox wins!
+The Fox did not win yet
+The Fox did not win yet
+The Hounds win!
+The Hounds do not win yet
+The Hounds do not win yet
+]]></system-out>
+  <system-err><![CDATA[THE FIGURE F IS NOT VALID
+THE FIGURE H IS NOT VALID
+ERROR, HOUNDS CAN ONLY MOVE FORWARD
+ERROR, NUMBER 9 IS NOT IN THE RANGE OF THE DIMENSION
+ERROR, F9 IS NOT A VALID COORDINATE
+ERROR, NUMBER 9 IS NOT IN THE RANGE OF THE DIMENSION
+ERROR, D9 IS NOT A VALID COORDINATE
+]]></system-err>
+</testsuite>
