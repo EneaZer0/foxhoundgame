@@ -151,11 +151,12 @@ public class FoxHoundUtils {
          *      take that into account
          */
 
-        String[] numbers_recognised = new String[players.length];
+        String[] numbers_recognised = null;
         if (players == null) {
             throw new NullPointerException("ERROR, PLAYERS CANT BE NULL");
         } else {
             /** k is a variable used to save the numbers in numbers_recognised*/
+            numbers_recognised = new String[players.length];
             int k = 0;
             boolean numbers_together = false;
 
@@ -226,26 +227,33 @@ public class FoxHoundUtils {
      * @return
      */
     public static int fox_position (int dimension) {
-        // Black = array with the positions of the black squares were the fox can be
-        int[] blacks = new int[dimension/2];
-        if (dimension % 2 == 0) {
-            for (int i = 0; i < dimension/2; i++) {
-                if (i == 0) {
-                    blacks[i] = i;
-                } else {
-                    blacks[i] = 2*i;
+        int position = 0;
+
+        if (dimension == 0) {
+            throw new NullPointerException("ERROR, DIMENSION CAN'T BE NULL");
+        } else {
+            // Black = array with the positions of the black squares were the fox can be
+            int[] blacks = new int[dimension/2];
+            if (dimension % 2 == 0) {
+                for (int i = 0; i < dimension/2; i++) {
+                    if (i == 0) {
+                        blacks[i] = i;
+                    } else {
+                        blacks[i] = 2*i;
+                    }
+                }
+            } else {
+                for (int i = 0; i < dimension /2; i++) {
+                    blacks[i] = 2*i + 1;
                 }
             }
-        } else {
-            for (int i = 0; i < dimension /2; i++) {
-                blacks[i] = 2*i + 1;
-            }
+            // Check printing the black squares
+            //System.out.println(Arrays.toString(blacks));
+            position = blacks[blacks.length/2];
+            // Check printing the final position of the Fox
+            //System.out.println(position);
+
         }
-        // Check printing the black squares
-        //System.out.println(Arrays.toString(blacks));
-        int position = blacks[blacks.length/2];
-        // Check printing the final position of the Fox
-        //System.out.println(position);
 
         return position;
     }
@@ -256,7 +264,7 @@ public class FoxHoundUtils {
      * @return = position_array, which is the players[] array
      */
     public static String[] initialisePositions(int dimension) {
-
+        String[] position_array = null;
         /** Number of pieces on the board, giving the option of possible
          * change of the number of Foxes playing */
 
@@ -264,49 +272,57 @@ public class FoxHoundUtils {
             throw new IllegalArgumentException("ERROR: DIMENSIONS MUST BE POSITIVE");
         } else if ( dimension == 0) {
             throw new NullPointerException("ERROR: DIMENSIONS CAN`T BE NULL");
+        } else {
+
+            try {
+                int number_Hound = (dimension / 2);
+                int number_Fox = 1;
+
+                /** Create the String array that returns the positions of the pieces */
+                position_array = new String[number_Hound + number_Fox];
+
+                /**_________________ NUMBER SET  ____________________
+                 *
+                 * The Hounds are set in the first row always
+                 * The Fox is set in the last one
+                 * Use of Strings to make easier the end built of the position array*/
+
+                String hound_num_initial_position = "1";
+                String fox_num_initial_position = String.valueOf(dimension);
+
+                /**________________ LETTER SET _____________________
+                 * For this task use ASCII values of the alphabet in order to calculate
+                 * the letter easier
+                 */
+
+                String[] hound_values = new String[number_Hound];
+                /** For loop to get the letters of Hounds
+                 * Calculation uses ASCII values and an arithmetic series */
+                for (int i = 0; i < number_Hound; i ++) {
+                    hound_values[i] = (String.valueOf((char)(66 + 2*i)) + hound_num_initial_position);
+                }
+                /** Create a for loop to copy the array with all the information of the
+                 * position of the Hounds to the final position_array */
+                for (int i = 0; i < number_Hound; i++) {
+                    position_array[i] = hound_values[i];
+                }
+
+                /** Calculating the Fox's letter  */
+                int fox_position = fox_position(dimension);
+                int fox_letter = 65 + fox_position;
+
+                // Creates the final string value of the Fox (including letter & number)
+                String fox_value = String.valueOf((char)fox_letter) + fox_num_initial_position;
+
+                // Add at the end of the array the Fox Value
+                position_array[position_array.length-1] = fox_value;
+            } catch (NullPointerException error) {
+                System.err.println(error.getMessage());
+            }
+
         }
 
-        int number_Hound = (dimension / 2);
-        int number_Fox = 1;
 
-        /** Create the String array that returns the positions of the pieces */
-        String[] position_array = new String[number_Hound + number_Fox];
-
-        /**_________________ NUMBER SET  ____________________
-         *
-         * The Hounds are set in the first row always
-         * The Fox is set in the last one
-         * Use of Strings to make easier the end built of the position array*/
-
-        String hound_num_initial_position = "1";
-        String fox_num_initial_position = String.valueOf(dimension);
-
-        /**________________ LETTER SET _____________________
-         * For this task use ASCII values of the alphabet in order to calculate
-         * the letter easier
-         */
-
-        String[] hound_values = new String[number_Hound];
-        /** For loop to get the letters of Hounds
-         * Calculation uses ASCII values and an arithmetic series */
-        for (int i = 0; i < number_Hound; i ++) {
-            hound_values[i] = (String.valueOf((char)(66 + 2*i)) + hound_num_initial_position);
-        }
-        /** Create a for loop to copy the array with all the information of the
-         * position of the Hounds to the final position_array */
-        for (int i = 0; i < number_Hound; i++) {
-            position_array[i] = hound_values[i];
-        }
-
-        /** Calculating the Fox's letter  */
-        int fox_position = fox_position(dimension);
-        int fox_letter = 65 + fox_position;
-
-        // Creates the final string value of the Fox (including letter & number)
-        String fox_value = String.valueOf((char)fox_letter) + fox_num_initial_position;
-
-        // Add at the end of the array the Fox Value
-        position_array[position_array.length-1] = fox_value;
 
         return  position_array;
     }
@@ -315,7 +331,6 @@ public class FoxHoundUtils {
 
 
     /** ____________________ BUILD AND DISPLAY OF GRID ______________________ */
-
     /** FUNCTION WHICH BUILDS A LINE AS A DIAGRAM IN NUMBERS*/
     /**
      *
@@ -411,51 +426,55 @@ public class FoxHoundUtils {
      */
     public static void board (int[][] grid, String alphabet, String[] numbers, int dimension) {
 
-        try {
-            String letters = alphabet_margin(dimension) + alphabet;
-            System.out.println("\n"+ letters + "  \n");
-            String one_line = "";
+        if (grid == null || alphabet == null || numbers == null || dimension == 0) {
+            throw new NullPointerException("ERROR PARAMETERS CAN`T BE NULL");
+        } else{
+            try {
+                String letters = alphabet_margin(dimension) + alphabet;
+                System.out.println("\n"+ letters + "  \n");
+                String one_line = "";
 
 
-            /** For every line on the grid */
+                /** For every line on the grid */
 
-            int row = 0;
+                int row = 0;
 
-            for (int[] line: grid) {
+                for (int[] line: grid) {
 
-                /** Reset the value of the line every time it restarts */
-                one_line = "" + numbers[row] + NUMBERS_MARGIN;
+                    /** Reset the value of the line every time it restarts */
+                    one_line = "" + numbers[row] + NUMBERS_MARGIN;
 
-                /** For every element of the grid substitute it's value to the corresponding piece on the grid */
-                for (int values: line) {
+                    /** For every element of the grid substitute it's value to the corresponding piece on the grid */
+                    for (int values: line) {
 
-                    if (values == 0) {
+                        if (values == 0) {
 
-                        one_line = one_line + DOT_FIELD;
+                            one_line = one_line + DOT_FIELD;
 
-                    } else if (values == 1) {
+                        } else if (values == 1) {
 
-                        one_line = one_line + HOUND_FIELD;
+                            one_line = one_line + HOUND_FIELD;
 
-                    } else {
+                        } else {
 
-                        one_line = one_line + FOX_FIELD;
+                            one_line = one_line + FOX_FIELD;
+
+                        }
 
                     }
 
+                    one_line = one_line + NUMBERS_MARGIN + numbers[row];
+                    row++;
+                    System.out.println(one_line);
+
+
                 }
 
-                one_line = one_line + NUMBERS_MARGIN + numbers[row];
-                row++;
-                System.out.println(one_line);
+                System.out.println("\n" + letters + "\n");
 
-
+            } catch (NullPointerException error ) {
+                System.err.println(error.getMessage());
             }
-
-            System.out.println("\n" + letters + "\n");
-
-        } catch (NullPointerException error ) {
-            System.err.println("ERROR, PARAMETERS CAN'T BE NULL");
         }
 
     }
@@ -475,8 +494,6 @@ public class FoxHoundUtils {
      */
     public static boolean isValidMove (int dimension, String[] players, char figure, String origin, String destination) {
         boolean isValid = true;
-
-
         /** _________________ CHECKING ORIGIN ___________________ */
         /** Check if the coordinates of the origin entered are valid */
         try {
@@ -1022,7 +1039,5 @@ public class FoxHoundUtils {
 
         return !fox_win;
     }
-
-
 
 }

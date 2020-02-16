@@ -115,7 +115,7 @@ public class FoxHoundUI {
 
         return letters_array;
     }
-
+    /** FUNCTION TO PRINT THE MAIN MENU AND THE QUESTIONS */
     /**
      * Print the main menu and query the user for an entry selection.
      * 
@@ -159,6 +159,7 @@ public class FoxHoundUI {
 
 
 
+
     /** #__________________ ASKING FOR COORDINATES __________________# */
     /**
      *
@@ -198,6 +199,7 @@ public class FoxHoundUI {
 
         return coordinates;
     }
+
 
 
 
